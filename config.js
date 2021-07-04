@@ -51,7 +51,7 @@ const publicRuntimeConfig = {
 
   timeout: 1000 * 60,
   ...apis,
-  static: './',
+  static: '/',
 
   publishTime: moment().format('YYYY-MM-DD HH:mm:ss'),
   dingtalkKey: 'xxx',
