@@ -56,7 +56,7 @@ const publicRuntimeConfig = {
   publishTime: moment().format('YYYY-MM-DD HH:mm:ss'),
   dingtalkKey: 'xxx',
 
-  blockDingtalk: !isProd,
+  blockDingtalk: true,
 
   env: NODE_ENV,
   enablePtbk: true,
