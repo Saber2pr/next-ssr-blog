@@ -1,6 +1,6 @@
 # CONFIG
 WORKSPACE="saber2pr";
-NAME="next-tpl";
+NAME="blog-ssr";
 
 # BRANCH
 default_test_branch="testing";

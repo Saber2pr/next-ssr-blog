@@ -1,5 +1,5 @@
 # CONFIG
-NAME="next-tpl";
+NAME="blog-ssr";
 PORT=8080;
 
 docker stop ${NAME} \

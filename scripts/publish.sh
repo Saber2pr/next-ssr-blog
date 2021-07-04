@@ -1,6 +1,6 @@
 # CONFIG
 WORKSPACE="saber2pr";
-NAME="next-tpl";
+NAME="blog-ssr";
 PORT=8080;
 
 # VERSION
