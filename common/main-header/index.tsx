@@ -1,13 +1,13 @@
 import './style.less'
 
+import { Avatar, Space, Typography } from 'antd'
 import classnames from 'classnames'
 import { useRouter } from 'next/router'
 import React from 'react'
-import { Space, Avatar, Typography } from 'antd'
-
-const { Text } = Typography
 
 import { Link } from '../../components/link'
+
+const { Text } = Typography
 
 export interface MainHeader {}
 

@@ -1,5 +1,4 @@
 import { TreeNode } from '../components'
-
 import { whenInDEV } from './whenInDEV'
 
 export interface TextTree extends TreeNode {

@@ -19,11 +19,11 @@ import { Provider } from 'react-redux'
 
 import { ApiConfig } from '../api/apiConfig'
 import { requestApi, requestUri } from '../api/request'
+import { requestProxy } from '../api/requestProxy'
 import { useRouterChange } from '../hooks/useRouterChange'
 import { useUserDingtalkFn } from '../hooks/useUserDingtalk'
 import { useStore } from '../store'
 import { printLogo } from '../utils/console'
-import { requestProxy } from '../api/requestProxy'
 
 const ComponentWrapper = ({ Component, pageProps }: AppProps) => {
   const send = useUserDingtalkFn()

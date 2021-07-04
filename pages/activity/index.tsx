@@ -1,5 +1,8 @@
 import './style.less'
 
+import { useState } from 'react'
+
+import { getContent } from '../../api/getContent'
 import { getData } from '../../api/getData'
 import { MainLayout } from '../../common/main-layout'
 import { ScrollToTop } from '../../components'
@@ -7,8 +10,6 @@ import { Act, Info, matchText, matchType } from '../../modules'
 import { withAxios } from '../../plugin/withAxios'
 import { withPage } from '../../plugin/withPage'
 import { timeDeltaFromNow } from '../../utils'
-import { getContent } from '../../api/getContent'
-import { useState } from 'react'
 
 type Props = {
   acts: (Act & { desc?: string })[]

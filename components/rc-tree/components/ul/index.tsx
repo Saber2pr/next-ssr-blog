@@ -1,12 +1,14 @@
+import './style.less'
+
 /*
  * @Author: saber2pr
  * @Date: 2019-07-21 18:41:09
  * @Last Modified by: saber2pr
  * @Last Modified time: 2019-11-18 13:31:38
  */
-import React, { useState } from "react"
-import { TreeNode } from "../../type"
-import "./style.less"
+import React, { useState } from 'react'
+
+import { TreeNode } from '../../type'
 
 export interface Ul<T extends TreeNode>
   extends React.DetailedHTMLProps<

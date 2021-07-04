@@ -1,6 +1,6 @@
-import { readdir, writeFile } from "fs"
-import { promisify } from "util"
-import { parse } from "path"
+import { readdir, writeFile } from 'fs'
+import { parse } from 'path'
+import { promisify } from 'util'
 
 promisify(readdir)(
   "./node_modules/react-syntax-highlighter/dist/cjs/languages/prism"

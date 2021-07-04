@@ -1,7 +1,7 @@
 import './style.less'
 
+import { Typography } from 'antd'
 import React from 'react'
-import { Typography, Space } from 'antd'
 
 const { Paragraph } = Typography
 

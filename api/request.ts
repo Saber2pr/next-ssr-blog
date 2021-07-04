@@ -1,8 +1,8 @@
-import { enhanceAxiosCache } from './cache'
 import axios, { AxiosRequestConfig } from 'axios'
 
 import { getHost } from '../utils/url'
 import { ApiConfig } from './apiConfig'
+import { enhanceAxiosCache } from './cache'
 import {
   autoWithClientToken,
   calcRequestTimeEnd,

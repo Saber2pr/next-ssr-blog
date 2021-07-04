@@ -4,6 +4,7 @@ import { requestUri } from './request'
 import { requestProxy } from './requestProxy'
 
 export const getContent = async (path: string, proxy = false) => {
+  if (!path) return
   let res = null
   let fileUri = appendPathExt(path)
   if (fileUri && /^\/blog/.test(fileUri)) {

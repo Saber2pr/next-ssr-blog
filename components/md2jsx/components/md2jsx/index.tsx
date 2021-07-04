@@ -1,3 +1,6 @@
+import './style.less'
+
+import ClipboardJS from 'clipboard'
 /*
  * @Author: saber2pr
  * @Date: 2019-07-15 08:49:51
@@ -5,14 +8,11 @@
  * @Last Modified time: 2020-04-07 14:10:59
  */
 import React, { Fragment, useEffect, useRef } from 'react'
-import ClipboardJS from 'clipboard'
-
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/cjs/prism-light'
 
-import { REG } from '../../reg'
-import { mergeCode } from '../../core'
-import './style.less'
 import { Link } from '../../../link'
+import { mergeCode } from '../../core'
+import { REG } from '../../reg'
 
 export interface Md2jsx {
   children: string

@@ -17,9 +17,11 @@ export const findNodeByPath = (path: string, entry: Node) => {
 }
 
 export const queryRootFirstChild = (entry: Node) => {
-  const children = entry.children
-  for (const ch of children) {
-    if (!ch.children) return ch
+  if (entry) {
+    const children = entry.children
+    for (const ch of children) {
+      if (!ch.children) return ch
+    }
   }
 }
 

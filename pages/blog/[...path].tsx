@@ -1,25 +1,25 @@
 import './style.less'
 
-import { useLayoutEffect, useRef } from 'react'
+import classnames from 'classnames'
 import { useRouter } from 'next/router'
+import { useLayoutEffect, useRef } from 'react'
 
 import { getContent } from '../../api/getContent'
 import { getData } from '../../api/getData'
 import { MainLayout } from '../../common/main-layout'
-import { Icon, Tree, Link, LinkProps } from '../../components'
-import { useAniLayout, useAsideHidable, useSelectState } from '../../hooks'
+import { Icon, Link, LinkProps, Tree } from '../../components'
+import { useAniLayout, useAsideHidable } from '../../hooks'
 import { Md2jsx, md_theme } from '../../modules'
 import { withAxios } from '../../plugin/withAxios'
 import { withPage } from '../../plugin/withPage'
-import { useDispatchState } from '../../store'
-import { addOriginHref, timeDeltaFromNow } from '../../utils'
+import { useDispatchState, useSelectState } from '../../store'
+import { addOriginHref, getArray, timeDeltaFromNow } from '../../utils'
 import { TextTree } from '../../utils/collect'
 import {
   findNodeByPath,
   Node,
   queryRootFirstChildMemo,
 } from '../../utils/parseTree'
-import classnames from 'classnames'
 
 type Props = {
   tree: TextTree
@@ -28,9 +28,9 @@ type Props = {
 
 export const getServerSideProps = withAxios<Props>(async ({ get }, ctx) => {
   const tree = await getData<TextTree>('blog')
-  const path = `${ctx?.req?.url}`
+  const path = `/blog/${getArray(ctx?.params?.path as any).join('/')}`
   const node = findNodeByPath(decodeURI(path), tree)
-  const content = await getContent(node.path)
+  const content = await getContent(node?.path)
   return {
     tree,
     node: {
@@ -61,7 +61,7 @@ export default withPage<Props>(({ tree, node }) => {
   const isMobile = false
 
   const getLastModified = (href: string): string =>
-    findNodeByPath(href, tree)['LastModified']
+    findNodeByPath(href, tree)?.['LastModified']
 
   const blogScrollTop = useSelectState('blogScrollTop')
   const dispatch = useDispatchState()
@@ -105,28 +105,30 @@ export default withPage<Props>(({ tree, node }) => {
           >
             {Icon.TreeBtn(isShow, '-90deg', '90deg', 'rotate')}
           </div>
-          <section className="PageBlog-Aside-Content">
-            <Tree
-              from={tree}
-              selectBtn={Icon.TreeBtn}
-              map={({ path: href, title, children }) => {
-                if (href === firstBlog.path) return <></>
-                if (children) return <span>{title}</span>
-                return (
-                  <BLink
-                    href={href}
-                    onClick={() => {
-                      if (!isMobile) return
-                      isOpen.current = close(false)
-                      aniBtnRef.current.close()
-                    }}
-                  >
-                    {title}
-                  </BLink>
-                )
-              }}
-            />
-          </section>
+          {tree && (
+            <section className="PageBlog-Aside-Content">
+              <Tree
+                from={tree}
+                selectBtn={Icon.TreeBtn}
+                map={({ path: href, title, children }) => {
+                  if (href === firstBlog?.path) return <></>
+                  if (children) return <span>{title}</span>
+                  return (
+                    <BLink
+                      href={href}
+                      onClick={() => {
+                        if (!isMobile) return
+                        isOpen.current = close(false)
+                        aniBtnRef.current.close()
+                      }}
+                    >
+                      {title}
+                    </BLink>
+                  )
+                }}
+              />
+            </section>
+          )}
         </aside>
       </div>
     </MainLayout>

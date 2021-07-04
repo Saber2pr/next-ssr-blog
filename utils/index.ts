@@ -5,7 +5,6 @@ export * from './collect';
 export * from './console';
 export * from './constants';
 export * from './createError';
-export * from './ctx';
 export * from './date';
 export * from './getPrefixCls';
 export * from './goTop';

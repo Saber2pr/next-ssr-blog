@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 
 import { Dingtalk } from '../api/dingtalk'
-import { useSelectState } from './useSelectState'
+import { useSelectState } from '../store'
 
 export const useUserDingtalkFn = () => {
   // user应从store中获取(useSelector)

@@ -1,13 +1,11 @@
 import './style.less'
 
-import { ApiUrls, resolveApiUrl } from '../api/apiUrls'
+import { getData } from '../api/getData'
 import { Home } from '../api/interface'
 import { MainLayout } from '../common/main-layout'
 import { withAxios } from '../plugin/withAxios'
 import { withPage } from '../plugin/withPage'
 import { getArray } from '../utils/array'
-import { requestUri } from '../api'
-import { getData } from '../api/getData'
 
 type Props = {
   home: Home

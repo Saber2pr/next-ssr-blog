@@ -1,10 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+import getConfig from 'next/config'
 
 import { createPureRequest } from '../../../api/request'
 import { KEYS } from '../../../utils/constants'
 import { createError } from '../../../utils/createError'
 import { ptbk } from '../../../utils/ptbk'
-import getConfig from 'next/config'
 
 const { webhook_dingtalk } = getConfig().serverRuntimeConfig
 

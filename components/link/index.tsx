@@ -47,7 +47,7 @@ export const Link = ({
       )
     } else {
       return (
-        <NextLink href={href} passHref scroll={scroll}>
+        <NextLink as={href} href={href} passHref scroll={scroll}>
           <a
             onClick={preLoading}
             target={target}

@@ -3,7 +3,6 @@ import './style.less'
 import React from 'react'
 
 import { Link } from '../../components'
-
 import { TextTree } from '../../utils'
 
 const NextLink = ({
@@ -21,7 +20,7 @@ const NextLink = ({
       <dl>
         <dt>{name}</dt>
         <dd>
-          <Link to={item.path}>{item.title}</Link>
+          <Link href={item.path}>{item.title}</Link>
         </dd>
       </dl>
     </li>
