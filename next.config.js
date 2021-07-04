@@ -56,7 +56,7 @@ const config = {
     return config
   },
   // TODO copy docker/app assets to cdn
-  // assetPrefix: isProd ? publicRuntimeConfig.static : '',
+  assetPrefix: isProd ? publicRuntimeConfig.static : '',
 }
 
 module.exports = withLess(withCss(config))
