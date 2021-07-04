@@ -1,6 +1,6 @@
 # CONFIG
 NAME="blog-ssr";
-PORT=8080;
+PORT=443;
 
 docker stop ${NAME} \
 && docker rm ${NAME};
