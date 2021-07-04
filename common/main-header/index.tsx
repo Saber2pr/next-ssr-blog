@@ -21,13 +21,13 @@ const NavLinks: NavLink[] = [
     name: '首页',
     href: '/',
   },
-  // {
-  //   name: '动态',
-  //   href: '/activity',
-  // },
+  {
+    name: '动态',
+    href: '/activity',
+  },
   {
     name: '笔记',
-    href: '/blog',
+    href: '/blog/永恒の幻想乡',
   },
 ]
 
@@ -69,6 +69,11 @@ export const MainHeader = ({}: MainHeader) => {
           })}
         </ul>
       </nav>
+      <div className="MainHeader-Right">
+        <a className="NavList-Item-Anchor" href="https://saber2pr.top/">
+          访问PWA版
+        </a>
+      </div>
     </div>
   )
 }

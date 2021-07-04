@@ -1,3 +1,4 @@
+import { enhanceAxiosCache } from './cache'
 import axios, { AxiosRequestConfig } from 'axios'
 
 import { getHost } from '../utils/url'
@@ -22,11 +23,15 @@ import type { OutgoingHttpHeaders } from 'http'
 const HTMLTAG = /^\</
 axios.defaults.transformResponse = [
   text => {
-    // java报错会返回html
-    if (HTMLTAG.test(text)) {
+    try {
+      // java报错会返回html
+      if (HTMLTAG.test(text)) {
+        return text
+      } else {
+        return JSONbigString.parse(text)
+      }
+    } catch (error) {
       return text
-    } else {
-      return JSONbigString.parse(text)
     }
   },
 ]
@@ -110,6 +115,6 @@ const createPureRequest = (config?: AxiosRequestConfig) => {
   return request
 }
 
-const requestUri = createPureRequest()
+const requestUri = enhanceAxiosCache(createPureRequest())
 
 export { requestApi, createRequestRoot, createPureRequest, requestUri }

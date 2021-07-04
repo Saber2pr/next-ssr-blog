@@ -12,7 +12,8 @@ export const ApiUrls = {
   list: '/list',
 
   // github
-  home: 'https://saber2pr.top/saber2pr.github.io/static/data/home.json'
+  data_: 'https://saber2pr.top/saber2pr.github.io/static/data/',
+  content_: 'https://saber2pr.top/saber2pr.github.io/blog',
 }
 
 export const resolveApiUrl = (apiUrl: string, params: object) =>
@@ -21,3 +22,5 @@ export const resolveApiUrl = (apiUrl: string, params: object) =>
 export const getAbsoluteUrl = (apiUrl: string) => join(ApiConfig.target, apiUrl)
 
 export const getProxyUrl = (apiUrl: string) => join(ApiConfig.proxyApi, apiUrl)
+
+export const cachelist: Array<keyof typeof ApiUrls> = ['content_', 'data_']

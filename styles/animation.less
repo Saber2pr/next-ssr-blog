@@ -1,0 +1,45 @@
+@keyframes opacityMoveUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.ani-opacityMoveUp {
+  animation: opacityMoveUp 0.5s ease;
+}
+
+@keyframes opacityMoveDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+}
+
+.ani-opacityMoveDown {
+  animation: opacityMoveDown 0.5s ease;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.ani-rotation {
+  animation: rotation 30s infinite linear;
+}

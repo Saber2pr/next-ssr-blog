@@ -7,6 +7,9 @@ import 'nprogress/nprogress.css'
 import '../styles/utils.less'
 import '../styles/global.less'
 import '../styles/reset.less'
+import '../styles/animation.less'
+import '../styles/components.less'
+import '../styles/shadow.less'
 
 import { AppProps } from 'next/app'
 import Head from 'next/head'
@@ -15,11 +18,12 @@ import { useEffect } from 'react'
 import { Provider } from 'react-redux'
 
 import { ApiConfig } from '../api/apiConfig'
-import { requestApi } from '../api/request'
+import { requestApi, requestUri } from '../api/request'
 import { useRouterChange } from '../hooks/useRouterChange'
 import { useUserDingtalkFn } from '../hooks/useUserDingtalk'
 import { useStore } from '../store'
 import { printLogo } from '../utils/console'
+import { requestProxy } from '../api/requestProxy'
 
 const ComponentWrapper = ({ Component, pageProps }: AppProps) => {
   const send = useUserDingtalkFn()
@@ -56,6 +60,8 @@ export default function App(AppProps: AppProps) {
       window['__store'] = store
       window['__config'] = ApiConfig
       window['__requestApi'] = requestApi
+      window['__requestUri'] = requestUri
+      window['__requestProxy'] = requestProxy
       window['__NProgress'] = NProgress
     }
   }, [])

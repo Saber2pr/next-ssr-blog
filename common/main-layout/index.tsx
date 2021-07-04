@@ -29,6 +29,7 @@ export const MainLayout = ({
         <MainHeader />
       </div>
       <main className="MainLayout-Main">
+        <picture className="MainLayout-Main-Bg" />
         <div className={classnames('MainContent', className)}>{children}</div>
       </main>
       <div className="MainLayout-Footer">

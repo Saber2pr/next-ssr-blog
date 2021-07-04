@@ -1,0 +1,71 @@
+.PageActivity {
+  transition: 0.4s;
+  padding: 2rem 4rem;
+
+  pre {
+    font-size: 1rem;
+
+    code::selection,
+    span::selection {
+      background-color: #46899b;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  & > ul > li:nth-child(n + 2)::before {
+    content: ' ';
+    display: block;
+    border-bottom: 1px solid black;
+  }
+
+  &-Content {
+    word-break: break-all;
+    display: flex;
+    position: relative;
+  }
+
+  &-Info {
+    line-height: 1.5rem;
+  }
+
+  &-Type {
+    word-break: keep-all;
+    line-height: 1.5rem;
+    padding-right: 2rem;
+    p {
+      display: flex;
+    }
+    i {
+      margin-right: 0.5rem;
+    }
+  }
+
+  &-Name {
+    margin-top: 1rem;
+  }
+
+  &-Time {
+    color: rgb(182, 182, 182);
+  }
+
+  &-Aside {
+    display: none;
+    position: fixed;
+    top: 30%;
+    right: 10%;
+    border: 1px solid black;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    text-shadow: 5px 5px 1px saddlebrown;
+  }
+}
+
+.Activity > li {
+  display: flex;
+}

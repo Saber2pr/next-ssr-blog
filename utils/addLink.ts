@@ -1,3 +1,4 @@
+import { join } from './path'
 import { toQueryStr } from './toQueryStr'
 
 /**
@@ -17,4 +18,30 @@ export const appendParams = (url: string, params?: object) => {
     }
   }
   return url
+}
+
+export const addBlogLink = ({ path }: { path: string }) => {
+  if (path) {
+    const url = join('/blog', clearPathExt(path))
+    return url
+  }
+}
+
+export const addOriginHref = ({ path }: { path: string }) => {
+  return `https://github.com/saber2pr/saber2pr.github.io/blob/master${appendPathExt(
+    path
+  )}`
+}
+
+export const appendPathExt = (path: string) => {
+  if (path) {
+    if (/\.md$/.test(path)) return path
+    return `${path}.md`
+  }
+}
+
+export const clearPathExt = (path: string) => {
+  if (path) {
+    return path.replace(/\.md$/, '')
+  }
 }

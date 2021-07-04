@@ -1,28 +1,28 @@
 import './style.less'
 
-import { ApiUrls } from '../api/apiUrls'
+import { ApiUrls, resolveApiUrl } from '../api/apiUrls'
 import { Home } from '../api/interface'
 import { MainLayout } from '../common/main-layout'
 import { withAxios } from '../plugin/withAxios'
 import { withPage } from '../plugin/withPage'
 import { getArray } from '../utils/array'
 import { requestUri } from '../api'
+import { getData } from '../api/getData'
 
 type Props = {
   home: Home
 }
 
 export const getServerSideProps = withAxios<Props>(async ({ get }, ctx) => {
-  const res = await requestUri.get(ApiUrls.home)
   return {
-    home: res.data,
+    home: await getData<Home>('home'),
   }
 })
 
 export default withPage<Props>(({ home }) => {
   const { title, infor, pic, items } = home
   return (
-    <MainLayout className="PageIndex" title="首页">
+    <MainLayout className="PageIndex" title="saber2prの窝">
       <ul className="PageIndex-Ul">
         <li className="PageIndex-Title shd-blue">
           <i>{title}</i>
