@@ -1,3 +1,3 @@
 ### blog-ssr
 
-in word progress..
+in work progress..
