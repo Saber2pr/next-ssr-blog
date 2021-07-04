@@ -1,0 +1,82 @@
+.PageIndex {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .PageIndex-Ul {
+    padding: 120px 0 0;
+    position: relative;
+    background-color: #282c34;
+    height: 300px;
+    overflow: hidden;
+    text-align: center;
+  }
+  position: relative;
+
+  transition: background-color 1s;
+
+  &-Comment {
+    position: absolute;
+    width: 25%;
+    top: 100px;
+    left: 10%;
+  }
+
+  &-Title {
+    color: #61dafb;
+    font-size: 45px;
+    letter-spacing: 0.01em;
+  }
+
+  &-Infor {
+    color: #d5d5d7;
+    line-height: 3rem;
+  }
+
+  &-Img {
+    img {
+      opacity: 0.2;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(0%, -50%);
+      transition: transform 1s ease;
+    }
+  }
+
+  &-Content {
+    margin: 0 5.5rem;
+    overflow: hidden;
+    p {
+      line-height: 1.7;
+      max-width: 42em;
+      font-size: 17px;
+    }
+    section {
+      margin: 4rem 0;
+    }
+
+    &-Title {
+      margin-bottom: 1rem;
+      color: rgb(109, 109, 109);
+      padding-top: 0;
+      margin: 0;
+      margin: 0 0 20px;
+      font-weight: 300;
+      font-size: 20px;
+    }
+
+    &-Item {
+      ul {
+        display: flex;
+
+        li:not(:first-child) {
+          margin-left: 2rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+@main-header-height: 40px;
+@main-content-width: 100%;
+
+.MainLayout {
+  &-Header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    min-width: @main-content-width;
+    height: @main-header-height;
+
+    background: #20232a;
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.04);
+
+    .MainHeader {
+      width: @main-content-width;
+      margin: 0 auto;
+    }
+  }
+  &-Main {
+    margin-top: @main-header-height;
+    min-width: @main-content-width;
+    .MainContent {
+      background: #e5e5e5;
+      margin: 0 auto;
+      width: @main-content-width;
+      min-height: 70vh;
+    }
+  }
+  &-Footer {
+    min-width: @main-content-width;
+    background: #000000;
+    .MainFooter {
+      width: @main-content-width;
+      background: rgb(19, 19, 19);
+      margin: 0 auto;
+    }
+  }
+}
