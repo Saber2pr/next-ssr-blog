@@ -19,6 +19,7 @@ RUN yarn config set sass_binary_site 'https://npm.taobao.org/mirrors/node-sass/'
 RUN yarn install --network-timeout 600000
 # RUN yarn build
 # no need build, app built by github actions
+RUN cp -r _next .next
 
 # script
 CMD [ "yarn", "start" ]
