@@ -1,7 +1,7 @@
 # CONFIG
 WORKSPACE="saber2pr";
 NAME="blog-ssr";
-PORT=8080;
+PORT=443;
 
 # VERSION
 DATE=$(date +%Y%m%d%H%M%S);
