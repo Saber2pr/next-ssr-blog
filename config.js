@@ -59,6 +59,7 @@ const publicRuntimeConfig = {
   blockDingtalk: !isProd,
 
   env: NODE_ENV,
+  enablePtbk: true,
 
   ...apis,
 }
