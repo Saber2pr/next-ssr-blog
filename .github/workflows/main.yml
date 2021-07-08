@@ -16,11 +16,5 @@ jobs:
       - name: Build App
         run: yarn build
         
-      - name: Upload CDN Assets
-        run: cp -r .next _next
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+      - name: Server Start
+        run: yarn start
