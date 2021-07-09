@@ -15,7 +15,7 @@ jobs:
 
       - name: Build App
         run: yarn build
-        
+
       - name: Upload CDN Assets
         run: cp -r .next _next
 
