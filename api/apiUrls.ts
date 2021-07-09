@@ -12,8 +12,8 @@ export const ApiUrls = {
   list: '/list',
 
   // github
-  data_: 'https://saber2pr.github.io/static/data/',
-  content_: 'https://saber2pr.github.io/blog',
+  data_: 'https://saber2pr.top/static/data/',
+  content_: 'https://saber2pr.top/blog',
 }
 
 export const resolveApiUrl = (apiUrl: string, params: object) =>

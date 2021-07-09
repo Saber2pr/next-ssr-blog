@@ -29,18 +29,26 @@ const NavLinks: NavLink[] = [
     name: '笔记',
     href: '/blog/永恒の幻想乡',
   },
+  {
+    name: '关于',
+    href: '/about',
+  },
 ]
 
 export const MainHeader = ({}: MainHeader) => {
   const router = useRouter()
-  const pathname = router.pathname
+  const pathname = router.asPath
   return (
     <div className="MainHeader flex">
       <nav className="MainHeader-Nav">
         <ul className="NavList flex align-items-center">
           {NavLinks.map(({ name, href }) => {
             const isActive =
-              href === '/' ? pathname === href : pathname.startsWith(href)
+              href === '/'
+                ? pathname === href
+                : href === NavLinks[2].href
+                ? pathname.startsWith('/blog')
+                : href === pathname
             let content = <>{name}</>
             if (href === '/') {
               content = (

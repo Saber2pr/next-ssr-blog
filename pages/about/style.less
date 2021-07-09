@@ -1,0 +1,131 @@
+.About {
+  margin: 0 4.5rem;
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  a {
+    color: black;
+  }
+
+  &-Main {
+    width: 75%;
+    transition: 0.4s;
+    padding-bottom: 5rem;
+
+    &-Title {
+      font-size: 3rem;
+      margin-top: 3rem;
+    }
+
+    &-Content {
+      margin: 1rem;
+      border-radius: 10px;
+      line-height: 1.5rem;
+      padding: 1rem;
+      background-color: white;
+    }
+
+    &-List {
+      dd {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &-Aside {
+    width: 25%;
+    height: 100%;
+    transition: 0.4s;
+    position: fixed;
+    right: -15px;
+    padding-right: 15px;
+    border-left: 1px solid #ececec;
+    background-color: #f7f7f7;
+
+    &-Title {
+      margin-left: 1rem;
+    }
+
+    &-Content {
+      margin: 1rem;
+      height: 80vh;
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        width: 0 !important;
+      }
+      padding-right: 1rem;
+      width: 94%;
+
+      &-Proj {
+        background-color: #f0f0f0;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border-radius: 15px;
+        box-shadow: 1px -1px 1px #d3d7d8;
+      }
+
+      &-Proj:hover {
+        background-color: #dfdfdf;
+      }
+    }
+  }
+
+  &-Hr {
+    margin: 3rem 0 1.5rem;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .About {
+    margin: 0;
+    ul {
+      padding-left: 0;
+    }
+
+    overflow: hidden;
+
+    &-Main {
+      width: 100%;
+      padding-bottom: 2rem;
+
+      &-Title {
+        font-size: 2rem;
+        margin-top: 2rem;
+        margin-left: 1rem;
+      }
+
+      &-Content {
+        margin: 0.5rem;
+      }
+    }
+
+    &-Aside {
+      width: 100%;
+      position: static;
+      animation: fadeIn 0.5s;
+      background-color: transparent;
+      border-left: none;
+      padding-bottom: 3rem;
+
+      &-Title {
+        text-align: center;
+        animation: none;
+      }
+
+      &-Content {
+        margin: 0.5rem;
+        height: auto;
+        padding-right: 0;
+        width: auto;
+        animation: none;
+
+        &-Proj {
+          background: white;
+        }
+      }
+    }
+  }
+}

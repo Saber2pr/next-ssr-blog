@@ -10,7 +10,7 @@ export const getContent = async (path: string, proxy = false) => {
   if (fileUri && /^\/blog/.test(fileUri)) {
     fileUri = fileUri.replace(/^\/blog/, '')
   }
-  const absPath = encodeURI(join(ApiUrls.content_, fileUri))
+  const absPath = join(ApiUrls.content_, decodeURIComponent(fileUri))
 
   if (proxy) {
     res = await requestProxy({
@@ -18,7 +18,7 @@ export const getContent = async (path: string, proxy = false) => {
       url: absPath,
     })
   } else {
-    res = await requestUri.get<string>(absPath)
+    res = await requestUri.get<string>(encodeURI(absPath))
   }
   return res.data
 }
