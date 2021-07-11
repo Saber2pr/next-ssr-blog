@@ -1,4 +1,5 @@
 import classnames from 'classnames'
+// @ts-ignore
 import { ClassValue } from 'classnames/types'
 
 const CommonPrefixCls = 'nextpl'

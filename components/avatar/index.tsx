@@ -7,6 +7,7 @@ import { resolveImgSrc } from '../../utils/resolveImgSrc'
 
 export interface Avatar extends AvatarProps {
   pendingSrc?: Promise<string>
+  src?: string
 }
 
 export const Avatar = ({ src, pendingSrc, ...props }: Avatar) => {
