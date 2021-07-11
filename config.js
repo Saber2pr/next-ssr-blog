@@ -12,8 +12,8 @@ const apis = {
   },
   production: {
     target: API,
-    allowOrigin: '*.saber2pr.top',
-    domain: '.xxx.com',
+    allowOrigin: 'saber2pr.top',
+    domain: 'saber2pr.top',
   },
   testing: {
     target: API,
