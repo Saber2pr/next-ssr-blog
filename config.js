@@ -12,7 +12,7 @@ const apis = {
   },
   production: {
     target: API,
-    allowOrigin: '*.xxx.com',
+    allowOrigin: '*.saber2pr.top',
     domain: '.xxx.com',
   },
   testing: {

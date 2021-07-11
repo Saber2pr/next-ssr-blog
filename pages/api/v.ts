@@ -1,3 +1,4 @@
+import { getOrigin } from './../../api/utils';
 import { NextApiRequest, NextApiResponse } from 'next'
 
 import { getVisitors, pushVisitor } from '../../api/visitors'
@@ -13,6 +14,10 @@ export const config = {
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const method = req.method.toLowerCase()
+    res.writeHead(200, {
+      'Access-Control-Allow-Credentials': 'true',
+      'Access-Control-Allow-Origin': getOrigin(),
+    })
     if(method === 'post'){
       res.end(JSON.stringify({status: 200, data: pushVisitor(req.body), message: 'push ok.'}))
     }
