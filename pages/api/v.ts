@@ -1,4 +1,5 @@
-import { getOrigin } from './../../api/utils';
+import { clearVisitors } from './../../api/visitors'
+import { getOrigin } from './../../api/utils'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 import { getVisitors, pushVisitor } from '../../api/visitors'
@@ -18,11 +19,24 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       'Access-Control-Allow-Credentials': 'true',
       'Access-Control-Allow-Origin': getOrigin(),
     })
-    if(method === 'post'){
-      res.end(JSON.stringify({status: 200, data: pushVisitor(req.body), message: 'push ok.'}))
+    if (method === 'post') {
+      res.end(
+        JSON.stringify({
+          status: 200,
+          data: pushVisitor(req.body),
+          message: 'push ok.',
+        })
+      )
     }
-    if(method === 'get'){
-      return res.end(JSON.stringify({status: 200, data: getVisitors(), message: 'get ok.'}))
+    if (method === 'get') {
+      const clear = req?.query?.clear
+      return res.end(
+        JSON.stringify({
+          status: 200,
+          data: clear ? clearVisitors() : getVisitors(),
+          message: 'get ok.',
+        })
+      )
     }
   } catch (error) {
     console.log(error)

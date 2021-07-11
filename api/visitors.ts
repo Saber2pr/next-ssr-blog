@@ -11,3 +11,5 @@ export const pushVisitor = (item: Visitor) => {
 }
 
 export const getVisitors = () => visitors.slice()
+
+export const clearVisitors = () => (visitors = [])
