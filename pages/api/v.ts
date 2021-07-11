@@ -23,7 +23,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       res.end(
         JSON.stringify({
           status: 200,
-          data: pushVisitor(req.body),
+          data: pushVisitor(JSON.parse(req.body)),
           message: 'push ok.',
         })
       )
