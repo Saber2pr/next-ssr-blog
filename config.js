@@ -51,7 +51,7 @@ const publicRuntimeConfig = {
 
   timeout: 1000 * 60,
   ...apis,
-  static: '//cdn.jsdelivr.net/gh/saber2pr/blog-ssr@gh-pages/',
+  static: '//cdn.jsdelivr.net/gh/saber2pr/next-ssr-blog@gh-pages/',
 
   publishTime: moment().format('YYYY-MM-DD HH:mm:ss'),
   dingtalkKey: 'xxx',
