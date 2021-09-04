@@ -4,7 +4,7 @@ in work progress..
 
 #### Feature
 
-1. 使用Nest.js服务端渲染
+1. 使用Next.js服务端渲染
 2. 使用Github Action自动构建发布Docker镜像
 3. 使用Github Action拷贝容器静态资源并上传CDN到jsDelivr
 4. 服务器端使用Docker容器运行应用
