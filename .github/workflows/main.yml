@@ -20,9 +20,11 @@ jobs:
           docker tag $repo:$tag ${{secrets.DOCKER_USER}}/$repo:$tag
           docker push ${{secrets.DOCKER_USER}}/$repo:$tag
 
+      - name: Copy Assets
+        run: docker cp $(docker create --rm ${{secrets.DOCKER_USER}}/$repo:$tag):/app/.next ./app/_next
+
       - name: Upload CDN
         uses: peaceiris/actions-gh-pages@v3
-        run: docker cp $(docker create --rm ${{secrets.DOCKER_USER}}/$repo:$tag):/app/.next ./_next
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_next
+          publish_dir: ./app
