@@ -1,26 +1,21 @@
-name: Github Pages
+name: Docker-Publish
 on:
+  workflow_dispatch:
   push:
-    branches:
-      - master
+    tags:
+      - 'v*.*.*'
 jobs:
-  Deploy-Pages:
-    runs-on: ubuntu-18.04
+  Docker-Publish:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.4
-
-      - name: Install Deps
-        run: yarn install
-
-      - name: Build App
-        run: yarn build
-
-      - name: Upload CDN Assets
-        run: cp -r .next _next
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+        uses: actions/checkout@v2
+        # secrets: DOCKER_USER, DOCKER_TOKEN
+      - name: Build & Publish
+        run: |
+          repo=${GITHUB_REPOSITORY#*/}
+          tag=${GITHUB_REF#refs/*/}
+          docker login -u ${{secrets.DOCKER_USER}} -p ${{secrets.DOCKER_TOKEN}}
+          docker image build -t $repo:$tag .
+          docker tag $repo:$tag ${{secrets.DOCKER_USER}}/$repo:$tag
+          docker push ${{secrets.DOCKER_USER}}/$repo:$tag

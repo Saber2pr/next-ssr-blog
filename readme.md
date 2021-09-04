@@ -5,5 +5,6 @@ in work progress..
 #### deploy by docker
 
 ```bash
-sh /home/saber2pr/blog-ssr/scripts/publish.sh gh-pages
+docker pull saber2pr/blog-ssr:<tag>
+docker run -d -p 80:80 -it saber2pr/blog-ssr:<tag>
 ```
