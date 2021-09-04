@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/Saber2pr/blog-ssr/compare/v1.1.0...v1.2.0) (2021-09-04)
+
+
+### Features
+
+* upload cdn ([d5bb828](https://github.com/Saber2pr/blog-ssr/commit/d5bb8286abd6cf6c566ae41e47b0e6ad8cdeac47))
+
 ## 1.1.0 (2021-09-04)
 
 
