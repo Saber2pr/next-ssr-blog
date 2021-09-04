@@ -1,5 +1,5 @@
 # CONFIG
-NAME="blog-ssr";
+NAME="next-ssr-blog";
 PORT=80;
 
 docker stop ${NAME} \

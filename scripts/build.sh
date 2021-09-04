@@ -1,6 +1,6 @@
 # CONFIG
 WORKSPACE="saber2pr";
-NAME="blog-ssr";
+NAME="next-ssr-blog";
 
 # BRANCH
 default_test_branch="testing";

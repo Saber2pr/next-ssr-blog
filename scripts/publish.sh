@@ -1,6 +1,6 @@
 # CONFIG
 WORKSPACE="saber2pr";
-NAME="blog-ssr";
+NAME="next-ssr-blog";
 PORT=80;
 
 # VERSION
