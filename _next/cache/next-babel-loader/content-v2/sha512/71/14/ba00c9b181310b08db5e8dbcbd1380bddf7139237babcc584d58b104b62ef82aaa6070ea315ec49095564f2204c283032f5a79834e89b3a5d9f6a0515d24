@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const throttle = (callback, delta = 500, metaKey = \"__$$count\") => {\n  const next = () => Reflect.set(throttle, metaKey, Date.now() + delta);\n\n  Reflect.has(throttle, metaKey) || next();\n\n  if (Date.now() > Reflect.get(throttle, metaKey)) {\n    next();\n    callback();\n  }\n};","map":null,"metadata":{},"sourceType":"module"}

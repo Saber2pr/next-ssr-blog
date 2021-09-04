@@ -1,0 +1,1 @@
+{"ast":null,"code":"// @ts-nocheck\n\n/**\n * 谷歌分析加载\n * ```ts\n * // 示例\n * registerAnalyticsGoogle('UA-XXX')\n * ```\n */\nexport const registerAnalyticsGoogle = id => {\n  window.dataLayer = window.dataLayer || [];\n\n  function gtag() {\n    dataLayer.push(arguments);\n  }\n\n  gtag('js', new Date());\n  gtag('config', id);\n};","map":null,"metadata":{},"sourceType":"module"}

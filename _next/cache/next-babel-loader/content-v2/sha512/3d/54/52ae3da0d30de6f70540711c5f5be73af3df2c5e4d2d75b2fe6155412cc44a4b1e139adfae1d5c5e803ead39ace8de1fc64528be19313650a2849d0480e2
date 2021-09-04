@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\n// antd table 列间距\nexport const TableBlock = width => ({\n  title: '',\n  width: width,\n  render: () => __jsx(\"div\", null)\n});","map":null,"metadata":{},"sourceType":"module"}

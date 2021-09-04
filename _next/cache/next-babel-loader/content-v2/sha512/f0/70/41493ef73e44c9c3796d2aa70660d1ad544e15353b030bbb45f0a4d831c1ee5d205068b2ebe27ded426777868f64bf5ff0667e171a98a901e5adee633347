@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const timeout = (delay = 1000) => new Promise(resolve => setTimeout(resolve, delay));","map":null,"metadata":{},"sourceType":"module"}

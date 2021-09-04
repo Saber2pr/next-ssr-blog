@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const HOUR = 3600;\nexport const DAY = 86400;\nexport const MIN = 60;\nexport const WAIT = 100;\nexport const COOKIE_MAX_AGE = DAY * 30;\nexport const LS_KEY = {\n  LOG: '__DEV__'\n};\nexport const KEYS = {\n  error: '$error',\n  token: 'token',\n  authKey: 'Authorization'\n};","map":null,"metadata":{},"sourceType":"module"}

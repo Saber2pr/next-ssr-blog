@@ -1,0 +1,1 @@
+{"ast":null,"code":"import classnames from 'classnames'; // @ts-ignore\n\nconst CommonPrefixCls = 'nextpl';\nexport const getPrefixCls = (suffixCls, ...classes) => {\n  const currentCls = suffixCls ? `${CommonPrefixCls}-${suffixCls}` : CommonPrefixCls;\n  return classnames(currentCls, ...classes);\n};","map":null,"metadata":{},"sourceType":"module"}

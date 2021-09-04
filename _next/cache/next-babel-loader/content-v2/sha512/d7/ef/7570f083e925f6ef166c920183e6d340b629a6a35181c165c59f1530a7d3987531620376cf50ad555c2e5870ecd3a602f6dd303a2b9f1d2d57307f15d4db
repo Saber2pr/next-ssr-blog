@@ -1,0 +1,1 @@
+{"ast":null,"code":"// http://patorjk.com/software/taag/\nexport var Logo = \"by saber2pr\";\nexport var printLogo = function printLogo() {\n  return console.log(Logo, 'color: black');\n};","map":null,"metadata":{},"sourceType":"module"}

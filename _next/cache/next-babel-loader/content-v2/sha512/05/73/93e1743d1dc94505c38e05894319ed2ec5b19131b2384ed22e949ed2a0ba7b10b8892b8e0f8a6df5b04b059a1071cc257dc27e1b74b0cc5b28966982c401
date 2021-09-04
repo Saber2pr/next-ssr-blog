@@ -1,0 +1,1 @@
+{"ast":null,"code":"export { default } from \"react-syntax-highlighter/dist/cjs/languages/prism/haskell\";","map":null,"metadata":{},"sourceType":"module"}

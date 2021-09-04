@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var whenInDEV = function whenInDEV(callback) {\n  var __DEV__ = false;\n  __DEV__ && callback && callback();\n  return __DEV__;\n};","map":null,"metadata":{},"sourceType":"module"}

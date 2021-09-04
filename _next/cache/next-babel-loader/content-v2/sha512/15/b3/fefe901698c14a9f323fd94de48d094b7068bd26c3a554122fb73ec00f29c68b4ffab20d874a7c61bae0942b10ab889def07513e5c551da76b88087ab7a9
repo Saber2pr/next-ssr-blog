@@ -1,0 +1,1 @@
+{"ast":null,"code":"let visitors = [];\nconst MAX = 10000;\nexport const pushVisitor = item => {\n  visitors = [item, ...visitors];\n  visitors = visitors.slice(0, MAX);\n  return visitors;\n};\nexport const getVisitors = () => visitors.slice();\nexport const clearVisitors = () => visitors = [];","map":null,"metadata":{},"sourceType":"module"}

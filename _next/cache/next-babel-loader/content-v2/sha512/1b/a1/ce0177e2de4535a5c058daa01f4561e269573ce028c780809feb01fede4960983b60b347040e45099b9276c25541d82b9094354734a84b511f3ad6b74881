@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var timeout = function timeout() {\n  var delay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1000;\n  return new Promise(function (resolve) {\n    return setTimeout(resolve, delay);\n  });\n};","map":null,"metadata":{},"sourceType":"module"}

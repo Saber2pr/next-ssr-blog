@@ -1,0 +1,1 @@
+{"ast":null,"code":"import Cookie from 'cookie';\nexport var parseCookie = function parseCookie(cookie) {\n  if (!cookie) return null;\n  return Cookie.parse(cookie);\n};\nexport var stringifyCookie = function stringifyCookie(name, value, options) {\n  Cookie.serialize(name, value, options);\n};","map":null,"metadata":{},"sourceType":"module"}

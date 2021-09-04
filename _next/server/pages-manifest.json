@@ -1,0 +1,15 @@
+{
+  "/_app": "pages/_app.js",
+  "/about": "pages/about.js",
+  "/activity": "pages/activity.js",
+  "/api/[...param]": "pages/api/[...param].js",
+  "/api/dingtalk/sendMessage": "pages/api/dingtalk/sendMessage.js",
+  "/api/list": "pages/api/list.js",
+  "/api/utils/proxy": "pages/api/utils/proxy.js",
+  "/api/v": "pages/api/v.js",
+  "/blog/[...path]": "pages/blog/[...path].js",
+  "/": "pages/index.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/404": "pages/404.html"
+}

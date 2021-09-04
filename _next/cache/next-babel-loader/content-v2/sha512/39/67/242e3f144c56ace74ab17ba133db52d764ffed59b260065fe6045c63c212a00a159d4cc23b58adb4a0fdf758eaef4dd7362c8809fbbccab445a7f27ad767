@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var getNoopServerSideProps = function getNoopServerSideProps(ctx) {\n  return {\n    props: {}\n  };\n}; // export const getServerSideProps = disableAutomaticStaticOptimization\n\nexport var disableAutomaticStaticOptimization = getNoopServerSideProps;","map":null,"metadata":{},"sourceType":"module"}
