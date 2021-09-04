@@ -19,3 +19,10 @@ jobs:
           docker image build -t $repo:$tag .
           docker tag $repo:$tag ${{secrets.DOCKER_USER}}/$repo:$tag
           docker push ${{secrets.DOCKER_USER}}/$repo:$tag
+
+      - name: Upload CDN
+        uses: peaceiris/actions-gh-pages@v3
+        run: docker cp $(docker create --rm ${{secrets.DOCKER_USER}}/$repo:$tag):/app/.next ./_next
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_next
