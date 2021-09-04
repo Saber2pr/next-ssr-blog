@@ -14,9 +14,9 @@ in work progress..
 #### Deploy
 
 ```bash
-docker pull saber2pr/blog-ssr:<tag>
+docker pull saber2pr/next-ssr-blog:<tag>
 ```
 
 ```bash
-docker run --restart=always -e NODE_ENV=production -d -p 80:80 -it saber2pr/blog-ssr:<tag>
+docker run --restart=always -e NODE_ENV=production -d -p 80:80 -it saber2pr/next-ssr-blog:<tag>
 ```
