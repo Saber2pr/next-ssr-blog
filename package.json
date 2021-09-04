@@ -12,7 +12,8 @@
     "reset:branch": "sh scripts/reset-branch.sh",
     "push": "sh scripts/push.sh",
     "push:tag": "sh scripts/tag.sh",
-    "report": "sh scripts/report.sh"
+    "report": "sh scripts/report.sh",
+    "release": "standard-version"
   },
   "dependencies": {
     "@ant-design/icons": "^4.2.2",
@@ -57,6 +58,7 @@
     "cross-env": "^7.0.2",
     "less": "^3.11.3",
     "null-loader": "^4.0.0",
+    "standard-version": "^9.3.1",
     "typescript": "^3.9.6",
     "webpack-bundle-analyzer": "^4.4.0",
     "webpack-filter-warnings-plugin": "^1.2.1"
