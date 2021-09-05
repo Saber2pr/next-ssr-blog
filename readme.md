@@ -2,6 +2,8 @@
 
 in work progress..
 
+> 此项目为PWA版博客提供SSR服务，[PWA博客主仓库](https://github.com/Saber2pr/saber2pr.github.io)
+
 #### Feature
 
 1. 使用Next.js服务端渲染
