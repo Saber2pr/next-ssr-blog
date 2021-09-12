@@ -22,3 +22,7 @@ docker pull saber2pr/next-ssr-blog:<tag>
 ```bash
 docker run --restart=always -e NODE_ENV=production -d -p 80:80 -it saber2pr/next-ssr-blog:<tag>
 ```
+
+### Other
+
+1. [nest-api-blog](https://github.com/Saber2pr/nest-api-blog): Nest.js + Docker + Vercel + MySQL + Github Action
