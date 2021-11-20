@@ -1,48 +1,49 @@
 import './style.less'
 
+import React from 'react'
+
+import { getData } from '../../api/getData'
 import { MainLayout } from '../../common/main-layout'
+import { Md2jsx } from '../../components'
 import { withAxios } from '../../plugin/withAxios'
 import { withPage } from '../../plugin/withPage'
-import { getData } from '../../api/getData'
 
 type Props = {
   data: About
 }
 
 export const getServerSideProps = withAxios<Props>(async ({ get }) => {
+  const about = await getData<About>('about')
+  const content = await getData<string>('about', 'md')
   return {
-    data: await getData('about')
+    data: {
+      ...about,
+      content
+    },
   }
 })
 
-
-const Main = ({ contents }: { contents: string[] }) => {
+const Main = ({ content }: { content: string }) => {
   return (
     <>
       <h1 className="About-Main-Title">About Me</h1>
       <div className="About-Main-Content">
-        <ul>
-          {contents.map(a => (
-            <li key={a}>
-              <p>{a}</p>
-            </li>
-          ))}
-        </ul>
+        <Md2jsx theme={null}>{content}</Md2jsx>
       </div>
     </>
   )
 }
 
 export interface About {
-  contents: string[]
+  content: string
   projects: Array<{ name: string; href: string; content: string }>
 }
 
-export const About = ({ contents, projects }: About) => (
+export const About = ({content,  projects }: About) => (
   <div className="About">
     <div className="flex">
       <section className="About-Main">
-        <Main contents={contents} />
+      <Main content={content} />
       </section>
       <aside className="About-Aside">
         <h2 className="About-Aside-Title">Projects</h2>
@@ -58,7 +59,6 @@ export const About = ({ contents, projects }: About) => (
     </div>
   </div>
 )
-
 
 export default withPage<Props>(props => {
   return (

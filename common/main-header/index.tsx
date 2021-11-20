@@ -33,6 +33,10 @@ const NavLinks: NavLink[] = [
     name: '关于',
     href: '/about',
   },
+  {
+    name: '链接',
+    href: '/links',
+  },
 ]
 
 export const MainHeader = ({}: MainHeader) => {

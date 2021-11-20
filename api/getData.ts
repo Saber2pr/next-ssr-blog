@@ -12,8 +12,11 @@ export const getData = async <T>(
     | 'links'
     | 'version'
     | 'musicList'
-    | 'acglist'
+    | 'acglist',
+  contentType: 'json' | 'md' = 'json'
 ) => {
-  const res = await requestUri.get<T>(join(ApiUrls.data_, `${type}.json`))
+  const res = await requestUri.get<T>(
+    join(ApiUrls.data_, `${type}.${contentType}`)
+  )
   return res.data
 }

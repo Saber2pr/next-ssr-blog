@@ -1,0 +1,101 @@
+.Links {
+  margin: 0 4.5rem;
+  padding-top: 1.5rem;
+  overflow: hidden;
+  padding-bottom: 3rem;
+
+  a {
+    color: black;
+  }
+
+  .Title {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+
+  .Link {
+    display: inline-block;
+    width: 25%;
+    background: white;
+    margin: 1rem;
+    border-radius: 8px;
+    padding-left: 1rem;
+    animation: flipInX 0.5s;
+    box-shadow: 1px -1px 1px #d3d7d8;
+  }
+
+  &-Own {
+    &-Title {
+      .Title();
+
+      &-Tip {
+        display: inline;
+        color: #bfbfbf;
+        font-size: 1rem;
+        margin-left: 1rem;
+      }
+    }
+
+    &-Content {
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+
+      &-Link {
+        .Link();
+
+        &-Message {
+          color: #7c7c7c;
+        }
+      }
+
+      &-Link:hover {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+
+  &-Friend {
+    &-Title {
+      .Title();
+
+      &-Tip {
+        color: #bfbfbf;
+        display: inline;
+        font-size: 1rem;
+        margin-left: 1rem;
+      }
+    }
+
+    &-Content {
+      display: flex;
+      flex-wrap: wrap;
+
+      &-Link {
+        .Link();
+
+        &-Message {
+          color: #7c7c7c;
+          word-break: break-all;
+          margin-right: 0.5rem;
+        }
+
+        i {
+          margin-right: 0.5rem !important;
+        }
+
+        &-Head {
+          @size: 3rem;
+          width: @size;
+          height: @size;
+          margin-right: 0.5rem;
+          border-radius: 0.5rem;
+        }
+      }
+
+      &-Link:hover {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+}

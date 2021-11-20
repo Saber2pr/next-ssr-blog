@@ -45,3 +45,6 @@ export const clearPathExt = (path: string) => {
     return path.replace(/\.md$/, '')
   }
 }
+
+export const createAvatars = (name: string, size = 70) =>
+  `https://avatars.githubusercontent.com/${name}?size=${size}`
