@@ -12,6 +12,7 @@ in work progress..
 4. 服务器端使用 Docker 容器运行应用
 5. 服务器端使用 Nginx 反向代理容器端口
 6. 服务器端使用 Nginx 添加 HTTPS 支持
+7. 使用 Webhook 通知自动拉取镜像部署
 
 #### Deploy
 

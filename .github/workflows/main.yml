@@ -30,3 +30,8 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./app
+
+      - name: Call Webhook
+        run: |
+          tag=${GITHUB_REF#refs/*/}
+          curl http://${{secrets.WEBHOOK}}/?command=deploy-blog&args=$tag
