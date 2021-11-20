@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.1](https://github.com/Saber2pr/blog-ssr/compare/v1.3.0...v1.3.1) (2021-11-20)
+
+
+### Bug Fixes
+
+* docker ([70351fa](https://github.com/Saber2pr/blog-ssr/commit/70351faef02df472ab56ac49556e78a18c027438))
+
 ## [1.3.0](https://github.com/Saber2pr/blog-ssr/compare/v1.2.3...v1.3.0) (2021-11-20)
 
 
