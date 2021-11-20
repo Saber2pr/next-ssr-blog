@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/Saber2pr/blog-ssr/compare/v1.2.3...v1.3.0) (2021-11-20)
+
+
+### Features
+
+* port ([6f490b4](https://github.com/Saber2pr/blog-ssr/commit/6f490b4a6dad9443ac4eb19ae8519f49acb5dd9d))
+
 ### [1.2.3](https://github.com/Saber2pr/blog-ssr/compare/v1.2.2...v1.2.3) (2021-09-04)
 
 ### [1.2.2](https://github.com/Saber2pr/next-ssr-blog/compare/v1.2.1...v1.2.2) (2021-09-04)
