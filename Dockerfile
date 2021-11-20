@@ -20,8 +20,7 @@ ENV NODE_ENV development
 RUN yarn config set registry 'https://registry.npm.taobao.org' -g
 RUN yarn config set sass_binary_site 'https://npm.taobao.org/mirrors/node-sass/' -g
 RUN yarn install --network-timeout 600000
-# delete node_modules after build
-RUN yarn build && rm -rf node_modules
+RUN yarn build
 
 # port
 EXPOSE 88
