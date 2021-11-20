@@ -5,14 +5,9 @@
   "author": "saber2pr",
   "private": true,
   "scripts": {
-    "dev": "next -p 8080",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "start:local": "cross-env NODE_ENV=development next start -p 8088",
-    "reset:branch": "sh scripts/reset-branch.sh",
-    "push": "sh scripts/push.sh",
-    "push:tag": "sh scripts/tag.sh",
-    "report": "sh scripts/report.sh",
     "release": "standard-version"
   },
   "dependencies": {

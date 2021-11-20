@@ -26,4 +26,4 @@ RUN yarn build
 EXPOSE 88
 
 # script
-CMD [ "yarn", "start" , "-p", "88"]
+CMD [ "yarn", "start"]
