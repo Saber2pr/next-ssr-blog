@@ -34,4 +34,4 @@ jobs:
       - name: Call Webhook
         run: |
           tag=${GITHUB_REF#refs/*/}
-          curl http://${{secrets.WEBHOOK}}/?command=deploy-blog&args=$tag
+          curl http://${{secrets.WEBHOOK}}/?command=deploy-blog:$tag
