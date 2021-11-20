@@ -2,16 +2,16 @@
 
 in work progress..
 
-> 此项目为PWA版博客提供SSR服务，[PWA博客主仓库](https://github.com/Saber2pr/saber2pr.github.io)
+> 此项目为 PWA 版博客提供 SSR 服务，[PWA 博客主仓库](https://github.com/Saber2pr/saber2pr.github.io)
 
 #### Feature
 
-1. 使用Next.js服务端渲染
-2. 使用Github Action自动构建发布Docker镜像
-3. 使用Github Action拷贝容器静态资源并上传CDN到jsDelivr
-4. 服务器端使用Docker容器运行应用
-5. 服务器端使用Nginx反向代理容器端口
-6. 服务器端使用Nginx添加HTTPS支持
+1. 使用 Next.js 服务端渲染
+2. 使用 Github Action 自动构建发布 Docker 镜像
+3. 使用 Github Action 拷贝容器静态资源并上传 CDN 到 jsDelivr
+4. 服务器端使用 Docker 容器运行应用
+5. 服务器端使用 Nginx 反向代理容器端口
+6. 服务器端使用 Nginx 添加 HTTPS 支持
 
 #### Deploy
 
@@ -20,7 +20,7 @@ docker pull saber2pr/next-ssr-blog:<tag>
 ```
 
 ```bash
-docker run --restart=always -e NODE_ENV=production -d -p 80:80 -it saber2pr/next-ssr-blog:<tag>
+docker run --restart=always -d -it saber2pr/next-ssr-blog:<tag>
 ```
 
 ### Other

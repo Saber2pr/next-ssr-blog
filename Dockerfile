@@ -13,14 +13,20 @@ RUN echo "Asia/Shanghai" > /etc/timezone
 WORKDIR /app
 COPY . /app
 
+# env
+ENV NODE_ENV development
+
 # npm
 RUN yarn config set registry 'https://registry.npm.taobao.org' -g
 RUN yarn config set sass_binary_site 'https://npm.taobao.org/mirrors/node-sass/' -g
 RUN yarn install --network-timeout 600000
 RUN yarn build
 
+# delete node_modules after build
+RUN rm -rf node_modules
+
 # port
-EXPOSE 80
+EXPOSE 88
 
 # script
-CMD [ "yarn", "start" ]
+CMD [ "yarn", "start" , '-p', '88']
