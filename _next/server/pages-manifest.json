@@ -9,6 +9,7 @@
   "/api/v": "pages/api/v.js",
   "/blog/[...path]": "pages/blog/[...path].js",
   "/": "pages/index.js",
+  "/links": "pages/links.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/404": "pages/404.html"

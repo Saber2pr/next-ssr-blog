@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { useState } from 'react';\nexport var usePreComp = function usePreComp(comp) {\n  var _useState = useState(comp),\n      body = _useState[0],\n      alter = _useState[1];\n\n  var destory = function destory() {\n    return alter(null);\n  };\n\n  return [body, destory];\n};","map":null,"metadata":{},"sourceType":"module"}

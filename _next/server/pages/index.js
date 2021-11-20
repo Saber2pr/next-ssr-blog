@@ -1913,6 +1913,8 @@ const TableBlock = width => ({
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "appendPathExt", function() { return _addLink__WEBPACK_IMPORTED_MODULE_0__["d"]; });
 
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createAvatars", function() { return _addLink__WEBPACK_IMPORTED_MODULE_0__["e"]; });
+
 /* harmony import */ var _analytics_google__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("nyK1");
 /* harmony import */ var _array__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("sF6c");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getArray", function() { return _array__WEBPACK_IMPORTED_MODULE_2__["a"]; });
@@ -4186,6 +4188,9 @@ const NavLinks = [{
 }, {
   name: '关于',
   href: '/about'
+}, {
+  name: '链接',
+  href: '/links'
 }];
 const MainHeader = ({}) => {
   const router = Object(router_["useRouter"])();
@@ -4580,8 +4585,8 @@ module.exports = require("cookie");
 
 
 
-const getData = async (type) => {
-  const res = await _request__WEBPACK_IMPORTED_MODULE_2__[/* requestUri */ "d"].get(Object(_utils__WEBPACK_IMPORTED_MODULE_0__["join"])(_apiUrls__WEBPACK_IMPORTED_MODULE_1__[/* ApiUrls */ "a"].data_, `${type}.json`));
+const getData = async (type, contentType = 'json') => {
+  const res = await _request__WEBPACK_IMPORTED_MODULE_2__[/* requestUri */ "d"].get(Object(_utils__WEBPACK_IMPORTED_MODULE_0__["join"])(_apiUrls__WEBPACK_IMPORTED_MODULE_1__[/* ApiUrls */ "a"].data_, `${type}.${contentType}`));
   return res.data;
 };
 
@@ -4769,6 +4774,7 @@ exports.__esModule=true;exports.normalizePathSep=normalizePathSep;exports.denorm
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return addOriginHref; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return appendPathExt; });
 /* unused harmony export clearPathExt */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return createAvatars; });
 /* harmony import */ var _path__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("XgvE");
 /* harmony import */ var _toQueryStr__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("6pq/");
 
@@ -4817,6 +4823,7 @@ const clearPathExt = path => {
     return path.replace(/\.md$/, '');
   }
 };
+const createAvatars = (name, size = 70) => `https://avatars.githubusercontent.com/${name}?size=${size}`;
 
 /***/ }),
 

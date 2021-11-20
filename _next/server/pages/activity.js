@@ -1871,6 +1871,7 @@ module.exports = require("next/dist/next-server/lib/router-context.js");
 __webpack_require__.d(__webpack_exports__, "a", function() { return /* reexport */ useAniLayout; });
 __webpack_require__.d(__webpack_exports__, "b", function() { return /* reexport */ useAsideHidable; });
 __webpack_require__.d(__webpack_exports__, "c", function() { return /* reexport */ useEvent; });
+__webpack_require__.d(__webpack_exports__, "d", function() { return /* reexport */ usePreComp; });
 
 // UNUSED EXPORTS: useFetch, useInputHistory, useRouterChange, useUserDingtalkFn
 
@@ -2065,6 +2066,18 @@ const useInputHistory = (key, defaultList = []) => {
 
   return [list, pushItem];
 };
+// CONCATENATED MODULE: ./hooks/usePreComp.ts
+
+const usePreComp = comp => {
+  const {
+    0: body,
+    1: alter
+  } = Object(external_react_["useState"])(comp);
+
+  const destory = () => alter(null);
+
+  return [body, destory];
+};
 // EXTERNAL MODULE: ./hooks/useRouterChange.ts
 var useRouterChange = __webpack_require__("sd1U");
 
@@ -2072,6 +2085,7 @@ var useRouterChange = __webpack_require__("sd1U");
 var useUserDingtalk = __webpack_require__("oKKt");
 
 // CONCATENATED MODULE: ./hooks/index.ts
+
 
 
 
@@ -2868,6 +2882,8 @@ const NextBefore = ({
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Link", function() { return _link__WEBPACK_IMPORTED_MODULE_3__["a"]; });
 
 /* harmony import */ var _md2jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("QBUf");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Md2jsx", function() { return _md2jsx__WEBPACK_IMPORTED_MODULE_4__["a"]; });
+
 /* harmony import */ var _next_before__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("bW/N");
 /* harmony import */ var _rc_tree__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("T3mB");
 /* harmony reexport (checked) */ if(__webpack_require__.o(_rc_tree__WEBPACK_IMPORTED_MODULE_6__, "ScrollToTop")) __webpack_require__.d(__webpack_exports__, "ScrollToTop", function() { return _rc_tree__WEBPACK_IMPORTED_MODULE_6__["ScrollToTop"]; });
@@ -2900,6 +2916,8 @@ const NextBefore = ({
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "addOriginHref", function() { return _addLink__WEBPACK_IMPORTED_MODULE_0__["b"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "appendPathExt", function() { return _addLink__WEBPACK_IMPORTED_MODULE_0__["d"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createAvatars", function() { return _addLink__WEBPACK_IMPORTED_MODULE_0__["e"]; });
 
 /* harmony import */ var _analytics_google__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("nyK1");
 /* harmony import */ var _array__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("sF6c");
@@ -5533,6 +5551,9 @@ const NavLinks = [{
 }, {
   name: '关于',
   href: '/about'
+}, {
+  name: '链接',
+  href: '/links'
 }];
 const MainHeader = ({}) => {
   const router = Object(router_["useRouter"])();
@@ -6064,8 +6085,8 @@ module.exports = require("cookie");
 
 
 
-const getData = async (type) => {
-  const res = await _request__WEBPACK_IMPORTED_MODULE_2__[/* requestUri */ "d"].get(Object(_utils__WEBPACK_IMPORTED_MODULE_0__["join"])(_apiUrls__WEBPACK_IMPORTED_MODULE_1__[/* ApiUrls */ "a"].data_, `${type}.json`));
+const getData = async (type, contentType = 'json') => {
+  const res = await _request__WEBPACK_IMPORTED_MODULE_2__[/* requestUri */ "d"].get(Object(_utils__WEBPACK_IMPORTED_MODULE_0__["join"])(_apiUrls__WEBPACK_IMPORTED_MODULE_1__[/* ApiUrls */ "a"].data_, `${type}.${contentType}`));
   return res.data;
 };
 
@@ -6321,6 +6342,7 @@ exports.__esModule=true;exports.normalizePathSep=normalizePathSep;exports.denorm
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return addOriginHref; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return appendPathExt; });
 /* unused harmony export clearPathExt */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return createAvatars; });
 /* harmony import */ var _path__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("XgvE");
 /* harmony import */ var _toQueryStr__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("6pq/");
 
@@ -6369,6 +6391,7 @@ const clearPathExt = path => {
     return path.replace(/\.md$/, '');
   }
 };
+const createAvatars = (name, size = 70) => `https://avatars.githubusercontent.com/${name}?size=${size}`;
 
 /***/ }),
 

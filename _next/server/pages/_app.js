@@ -1430,6 +1430,7 @@ module.exports = require("json-bigint");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return addOriginHref; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return appendPathExt; });
 /* unused harmony export clearPathExt */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return createAvatars; });
 /* harmony import */ var _path__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("XgvE");
 /* harmony import */ var _toQueryStr__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("6pq/");
 
@@ -1478,6 +1479,7 @@ const clearPathExt = path => {
     return path.replace(/\.md$/, '');
   }
 };
+const createAvatars = (name, size = 70) => `https://avatars.githubusercontent.com/${name}?size=${size}`;
 
 /***/ }),
 

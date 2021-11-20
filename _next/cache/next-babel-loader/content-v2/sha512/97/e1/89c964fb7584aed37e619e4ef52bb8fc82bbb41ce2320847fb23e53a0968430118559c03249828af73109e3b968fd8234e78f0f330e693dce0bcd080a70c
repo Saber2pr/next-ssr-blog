@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { join } from '../utils';\nimport { ApiUrls } from './apiUrls';\nimport { requestUri } from './request';\nexport const getData = async (type, contentType = 'json') => {\n  const res = await requestUri.get(join(ApiUrls.data_, `${type}.${contentType}`));\n  return res.data;\n};","map":null,"metadata":{},"sourceType":"module"}
