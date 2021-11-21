@@ -33,5 +33,5 @@ jobs:
 
       - name: Call Webhook
         run: |
-          tag=${GITHUB_REF#refs/*/}
-          curl http://${{secrets.WEBHOOK}}/?command=deploy-blog:$tag
+          image=${GITHUB_REPOSITORY#*/}:${GITHUB_REF#refs/*/}
+          curl http://${{secrets.WEBHOOK}}/?deploy=$image,88:3000
