@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/Saber2pr/blog-ssr/compare/v1.4.0...v1.5.0) (2021-11-21)
+
+
+### Features
+
+* redirect h5 ([c96fb8b](https://github.com/Saber2pr/blog-ssr/commit/c96fb8b80da7217b556f49954a19761d8f2b7088))
+
 ## [1.4.0](https://github.com/Saber2pr/blog-ssr/compare/v1.3.6...v1.4.0) (2021-11-20)
 
 
