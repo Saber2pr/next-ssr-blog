@@ -99,10 +99,10 @@ module.exports =
 "use strict";
 /* unused harmony export isUndefined */
 /* unused harmony export isNull */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return isNullOrUndefined; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return isNullOrUndefined; });
 /* unused harmony export isNotNullOrUndefined */
 /* unused harmony export isBrowser */
-/* unused harmony export isMobAgent */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return isMobAgent; });
 /* unused harmony export isJSON */
 /* unused harmony export compareId */
 const isUndefined = val => typeof val === 'undefined';
@@ -248,7 +248,7 @@ const toQueryStr = obj => {
 const getNowMon = () => moment__WEBPACK_IMPORTED_MODULE_0___default()();
 const getNow = (format = 'YYYY-MM-DD HH:mm:ss') => getNowMon().format(format);
 const formatTimestamp = (timestamp, format = 'MM-DD HH:mm') => {
-  if (Object(_is__WEBPACK_IMPORTED_MODULE_1__[/* isNullOrUndefined */ "a"])(timestamp)) {
+  if (Object(_is__WEBPACK_IMPORTED_MODULE_1__[/* isNullOrUndefined */ "b"])(timestamp)) {
     return '-';
   }
 
@@ -259,7 +259,7 @@ const formatTimestamp = (timestamp, format = 'MM-DD HH:mm') => {
   return moment__WEBPACK_IMPORTED_MODULE_0___default()(timestamp).format(format);
 };
 const formatSeconds = (seconds, split = ':') => {
-  if (Object(_is__WEBPACK_IMPORTED_MODULE_1__[/* isNullOrUndefined */ "a"])(seconds) || Number.isNaN(seconds)) {
+  if (Object(_is__WEBPACK_IMPORTED_MODULE_1__[/* isNullOrUndefined */ "b"])(seconds) || Number.isNaN(seconds)) {
     return '-';
   }
 

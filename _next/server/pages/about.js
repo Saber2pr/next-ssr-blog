@@ -99,10 +99,10 @@ module.exports =
 "use strict";
 /* unused harmony export isUndefined */
 /* unused harmony export isNull */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return isNullOrUndefined; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return isNullOrUndefined; });
 /* unused harmony export isNotNullOrUndefined */
 /* unused harmony export isBrowser */
-/* unused harmony export isMobAgent */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return isMobAgent; });
 /* unused harmony export isJSON */
 /* unused harmony export compareId */
 const isUndefined = val => typeof val === 'undefined';
@@ -200,7 +200,7 @@ function isDynamicRoute(route) {
 "use strict";
 
 // EXPORTS
-__webpack_require__.d(__webpack_exports__, "a", function() { return /* binding */ withAxios; });
+__webpack_require__.d(__webpack_exports__, "a", function() { return /* binding */ withAxios_withAxios; });
 
 // UNUSED EXPORTS: AxiosMonad
 
@@ -220,18 +220,37 @@ var createError = __webpack_require__("/xoJ");
 // EXTERNAL MODULE: ./utils/ptbk.ts
 var ptbk = __webpack_require__("hwuy");
 
+// EXTERNAL MODULE: ./utils/index.ts
+var utils = __webpack_require__("cBaE");
+
+// CONCATENATED MODULE: ./utils/encodeUrl.ts
+const encodeUrl = url => {
+  if (url.includes('%')) return url;
+  return encodeURI(url);
+};
 // CONCATENATED MODULE: ./plugin/withRedirect.ts
 
-const withRedirect = Object(next_with_axios_["fmap"])(withAxios => (handler, ctx) => {
-  var _ctx$req;
 
-  const reqHeaders = ctx === null || ctx === void 0 ? void 0 : (_ctx$req = ctx.req) === null || _ctx$req === void 0 ? void 0 : _ctx$req.headers;
-  const agent = reqHeaders === null || reqHeaders === void 0 ? void 0 : reqHeaders['user-agent']; // if (agent && isMobAgent(agent)) {
-  //   ctx.res.writeHead(302, {
-  //     Location: '//m.xxx.com',
-  //   })
-  //   ctx.res.end()
-  // }
+
+const RedirectMap = {
+  '/activity': '/动态',
+  '/about': '/关于',
+  '/links': '/链接'
+};
+const withRedirect = Object(next_with_axios_["fmap"])(withAxios => (handler, ctx) => {
+  var _ctx$req, _ctx$req2;
+
+  const url = ctx === null || ctx === void 0 ? void 0 : (_ctx$req = ctx.req) === null || _ctx$req === void 0 ? void 0 : _ctx$req.url;
+  const reqHeaders = ctx === null || ctx === void 0 ? void 0 : (_ctx$req2 = ctx.req) === null || _ctx$req2 === void 0 ? void 0 : _ctx$req2.headers;
+  const agent = reqHeaders === null || reqHeaders === void 0 ? void 0 : reqHeaders['user-agent'];
+
+  if (agent && Object(utils["isMobAgent"])(agent)) {
+    const target = RedirectMap[url] || url;
+    ctx.res.writeHead(302, {
+      Location: `//saber2pr.top/#${encodeUrl(target)}`
+    });
+    ctx.res.end();
+  }
 
   return withAxios(handler)(ctx);
 });
@@ -261,7 +280,7 @@ const AxiosMonad = next_with_axios_default()(async (handler, ctx) => {
     return result;
   }
 });
-const withAxios = withRedirect(AxiosMonad);
+const withAxios_withAxios = withRedirect(AxiosMonad);
 
 /***/ }),
 
@@ -772,7 +791,7 @@ const YI = 100000000;
  */
 
 const parseFixed = (val, size = 2) => {
-  if (Object(_is__WEBPACK_IMPORTED_MODULE_0__[/* isNullOrUndefined */ "a"])(val) || Number.isNaN(val)) {
+  if (Object(_is__WEBPACK_IMPORTED_MODULE_0__[/* isNullOrUndefined */ "b"])(val) || Number.isNaN(val)) {
     return '-';
   }
   /**
@@ -790,7 +809,7 @@ const parseFixed = (val, size = 2) => {
  */
 
 const parseUnit = (val, prefix = '') => {
-  if (Object(_is__WEBPACK_IMPORTED_MODULE_0__[/* isNullOrUndefined */ "a"])(val) || Number.isNaN(val)) {
+  if (Object(_is__WEBPACK_IMPORTED_MODULE_0__[/* isNullOrUndefined */ "b"])(val) || Number.isNaN(val)) {
     return '-';
   }
 
@@ -1048,7 +1067,7 @@ module.exports = require("@saber2pr/next-with-axios");
 const getNowMon = () => moment__WEBPACK_IMPORTED_MODULE_0___default()();
 const getNow = (format = 'YYYY-MM-DD HH:mm:ss') => getNowMon().format(format);
 const formatTimestamp = (timestamp, format = 'MM-DD HH:mm') => {
-  if (Object(_is__WEBPACK_IMPORTED_MODULE_1__[/* isNullOrUndefined */ "a"])(timestamp)) {
+  if (Object(_is__WEBPACK_IMPORTED_MODULE_1__[/* isNullOrUndefined */ "b"])(timestamp)) {
     return '-';
   }
 
@@ -1059,7 +1078,7 @@ const formatTimestamp = (timestamp, format = 'MM-DD HH:mm') => {
   return moment__WEBPACK_IMPORTED_MODULE_0___default()(timestamp).format(format);
 };
 const formatSeconds = (seconds, split = ':') => {
-  if (Object(_is__WEBPACK_IMPORTED_MODULE_1__[/* isNullOrUndefined */ "a"])(seconds) || Number.isNaN(seconds)) {
+  if (Object(_is__WEBPACK_IMPORTED_MODULE_1__[/* isNullOrUndefined */ "b"])(seconds) || Number.isNaN(seconds)) {
     return '-';
   }
 
@@ -2782,6 +2801,8 @@ const NextBefore = ({
 /* harmony import */ var _goTop__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("VbZ2");
 /* harmony import */ var _input_history__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("LqVz");
 /* harmony import */ var _is__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("/B36");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isMobAgent", function() { return _is__WEBPACK_IMPORTED_MODULE_11__["a"]; });
+
 /* harmony import */ var _message__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("f/3W");
 /* harmony import */ var _next__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("fOwK");
 /* harmony import */ var _number__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("9I8p");
@@ -5427,7 +5448,8 @@ const About = ({
 }, name), __jsx("p", null, content)))))));
 /* harmony default export */ __webpack_exports__["default"] = (Object(_plugin_withPage__WEBPACK_IMPORTED_MODULE_6__[/* withPage */ "a"])(props => {
   return __jsx(_common_main_layout__WEBPACK_IMPORTED_MODULE_3__[/* MainLayout */ "a"], {
-    className: "About"
+    className: "About",
+    title: `关于 - saber2prの窝`
   }, __jsx(About, props === null || props === void 0 ? void 0 : props.data));
 }));
 
