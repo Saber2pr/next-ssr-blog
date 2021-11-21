@@ -127,7 +127,7 @@ const FriendLinks = ({ links }: { links: Link[] }) => (
 )
 
 export const Links = ({ owns, friends }: Links) => (
-  <div className="Links">
+  <div className='Links'>
     <OwnLinks links={owns} />
     {friends?.length > 0 && <FriendLinks links={friends} />}
   </div>
@@ -135,7 +135,7 @@ export const Links = ({ owns, friends }: Links) => (
 
 export default withPage<Props>(props => {
   return (
-    <MainLayout className='About'>
+    <MainLayout title={`链接 - saber2prの窝`}>
       <Links {...props?.data}/>
     </MainLayout>
   )

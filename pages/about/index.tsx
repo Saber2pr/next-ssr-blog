@@ -62,7 +62,7 @@ export const About = ({content,  projects }: About) => (
 
 export default withPage<Props>(props => {
   return (
-    <MainLayout className='About'>
+    <MainLayout className='About' title={`关于 - saber2prの窝`}>
       <About {...props?.data}/>
     </MainLayout>
   )
