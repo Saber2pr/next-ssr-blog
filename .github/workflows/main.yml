@@ -34,4 +34,4 @@ jobs:
       - name: Call Webhook
         run: |
           image=${GITHUB_REPOSITORY#*/}:${GITHUB_REF#refs/*/}
-          curl http://${{secrets.WEBHOOK}}/?deploy=${{secrets.DOCKER_USER}}/$image,88:3000
+          curl http://blog.saber2pr.top:3000/?deploy=${{secrets.DOCKER_USER}}/$image,88:3000,${{secrets.WEBHOOK_SECRET}}
