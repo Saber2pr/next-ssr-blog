@@ -10,6 +10,7 @@ export const ApiUrls = {
 
   // apis
   list: '/list',
+  comments163: 'https://api.uomg.com/api/comments.163?format=text',
 
   // github
   data_: 'https://saber2pr.top/static/data/',

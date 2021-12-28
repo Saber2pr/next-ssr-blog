@@ -69,10 +69,29 @@ export default function App(AppProps: AppProps) {
   return (
     <Provider store={store}>
       <Head>
-        <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
-        <meta httpEquiv="x-ua-compatible" content="ie=edge, chrome=1" />
-        {/* <link rel="icon" href="favicon.svg" type="image/x-icon" /> */}
-        {/* <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXX" ></script> */}
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        />
+        <meta
+          name="keywords"
+          content="react,antd,typescript,javascript,css,html,前端学习,前端进阶,个人博客"
+        />
+        <meta
+          name="description"
+          content="长期更新前端技术文章,分享前端技术经验"
+        />
+        <link rel="manifest" href="./manifest.json" />
+        <script src="//cdn.jsdelivr.net/gh/Saber2pr/loading@master/index.min.js"></script>
+        <script
+          async
+          src="//cdn.jsdelivr.net/gh/saber2pr/click-mask@master/click-mask.min.js"
+        ></script>
+        <script
+          async
+          src="//cdn.jsdelivr.net/gh/saber2pr/test@master/tools/debug.min.js"
+        ></script>
+        <script async src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
       </Head>
       <ComponentWrapper {...AppProps} />
     </Provider>

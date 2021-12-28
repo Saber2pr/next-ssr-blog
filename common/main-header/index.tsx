@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import React from 'react'
 
 import { Link } from '../../components/link'
+import { HeaderMessage } from '../../components/header-message'
 
 const { Text } = Typography
 
@@ -28,6 +29,14 @@ const NavLinks: NavLink[] = [
   {
     name: '笔记',
     href: '/blog/永恒の幻想乡',
+  },
+  {
+    name: '文档',
+    href: '/learn',
+  },
+  {
+    name: '数据',
+    href: '/datav',
   },
   {
     name: '关于',
@@ -80,6 +89,9 @@ export const MainHeader = ({}: MainHeader) => {
             )
           })}
         </ul>
+        <div className="NavList-Block">
+          <HeaderMessage />
+        </div>
       </nav>
       <div className="MainHeader-Right">
         <a className="NavList-Item-Anchor" href="https://saber2pr.top/">

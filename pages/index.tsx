@@ -6,6 +6,9 @@ import { MainLayout } from '../common/main-layout'
 import { withAxios } from '../plugin/withAxios'
 import { withPage } from '../plugin/withPage'
 import { getArray } from '../utils/array'
+import { useEffect, useState } from 'react'
+import { get163Msg } from '../api/get163Msg'
+import { WordsInputing } from '../components/words-inputing'
 
 type Props = {
   home: Home
@@ -16,6 +19,35 @@ export const getServerSideProps = withAxios<Props>(async ({ get }, ctx) => {
     home: await getData<Home>('home'),
   }
 })
+
+const LiveComment = () => {
+  const [msg, setMsg] = useState<string>()
+  useEffect(() => {
+    get163Msg().then(text => {
+      setMsg(text)
+    })
+  }, [])
+
+  return (
+    <>
+      {msg && (
+        <WordsInputing
+          inputs={msg}
+          key={msg}
+          next={() =>
+            setTimeout(
+              () =>
+                get163Msg().then(text => {
+                  setMsg(text)
+                }),
+              3000
+            )
+          }
+        />
+      )}
+    </>
+  )
+}
 
 export default withPage<Props>(({ home }) => {
   const { title, infor, pic, items } = home
@@ -32,6 +64,9 @@ export default withPage<Props>(({ home }) => {
           <img src={pic} alt={title} />
         </li>
       </ul>
+      <div className="PageIndex-Comment">
+        <LiveComment />
+      </div>
       <div className="PageIndex-Content">
         <section className="PageIndex-Content-Item">
           <ul>

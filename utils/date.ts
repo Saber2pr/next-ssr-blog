@@ -25,3 +25,6 @@ export const formatSeconds = (seconds: number, split = ':') => {
   const s = Math.floor(seconds % 60)
   return [h, m, s].map(v => String(v).padStart(2, '0')).join(split)
 }
+
+export const formatTime = (time: string) =>
+  `${time.slice(0, 4)}/${time.slice(4)}`

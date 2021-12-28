@@ -12,6 +12,7 @@ export const getData = async <T>(
     | 'links'
     | 'version'
     | 'musicList'
+    | "mind"
     | 'acglist',
   contentType: 'json' | 'md' = 'json'
 ) => {
