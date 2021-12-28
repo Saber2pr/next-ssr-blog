@@ -250,10 +250,11 @@ const toQueryStr = obj => {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getNowMon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getNowMon; });
 /* unused harmony export getNow */
 /* unused harmony export formatTimestamp */
 /* unused harmony export formatSeconds */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return formatTime; });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("wy2R");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _is__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("/B36");
@@ -282,6 +283,7 @@ const formatSeconds = (seconds, split = ':') => {
   const s = Math.floor(seconds % 60);
   return [h, m, s].map(v => String(v).padStart(2, '0')).join(split);
 };
+const formatTime = time => `${time.slice(0, 4)}/${time.slice(4)}`;
 
 /***/ }),
 
@@ -465,6 +467,7 @@ const ApiUrls = {
   dingtalkSendMessage: '/dingtalk/sendMessage',
   // apis
   list: '/list',
+  comments163: 'https://api.uomg.com/api/comments.163?format=text',
   // github
   data_: 'https://saber2pr.top/static/data/',
   content_: 'https://saber2pr.top/blog'
@@ -649,12 +652,29 @@ function App(AppProps) {
   }, []);
   return __jsx(react_redux__WEBPACK_IMPORTED_MODULE_12__["Provider"], {
     store: store
-  }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_10___default.a, null, __jsx("link", {
-    rel: "dns-prefetch",
-    href: "//cdn.jsdelivr.net"
+  }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_10___default.a, null, __jsx("meta", {
+    "http-equiv": "Content-Security-Policy",
+    content: "upgrade-insecure-requests"
   }), __jsx("meta", {
-    httpEquiv: "x-ua-compatible",
-    content: "ie=edge, chrome=1"
+    name: "keywords",
+    content: "react,antd,typescript,javascript,css,html,\u524D\u7AEF\u5B66\u4E60,\u524D\u7AEF\u8FDB\u9636,\u4E2A\u4EBA\u535A\u5BA2"
+  }), __jsx("meta", {
+    name: "description",
+    content: "\u957F\u671F\u66F4\u65B0\u524D\u7AEF\u6280\u672F\u6587\u7AE0,\u5206\u4EAB\u524D\u7AEF\u6280\u672F\u7ECF\u9A8C"
+  }), __jsx("link", {
+    rel: "manifest",
+    href: "./manifest.json"
+  }), __jsx("script", {
+    src: "//cdn.jsdelivr.net/gh/Saber2pr/loading@master/index.min.js"
+  }), __jsx("script", {
+    async: true,
+    src: "//cdn.jsdelivr.net/gh/saber2pr/click-mask@master/click-mask.min.js"
+  }), __jsx("script", {
+    async: true,
+    src: "//cdn.jsdelivr.net/gh/saber2pr/test@master/tools/debug.min.js"
+  }), __jsx("script", {
+    async: true,
+    src: "http://pv.sohu.com/cityjson?ie=utf-8"
   })), __jsx(ComponentWrapper, AppProps));
 }
 
@@ -843,7 +863,7 @@ const printResUrlTime = res => {
       }
 
       const duration = Object(utils["a" /* getMetadata */])(res, 'duration');
-      let optionalParams = [Object(date["a" /* getNowMon */])().format('YYYY-MM-DD HH:mm:ss'), reqUrl];
+      let optionalParams = [Object(date["b" /* getNowMon */])().format('YYYY-MM-DD HH:mm:ss'), reqUrl];
 
       if (duration) {
         optionalParams = optionalParams.concat(`[duration]: ${duration}ms`);

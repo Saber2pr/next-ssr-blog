@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -378,37 +378,116 @@ const timeDeltaFromNow = time => timeDelta(Date.now(), Number(time));
 
 /***/ }),
 
+/***/ 10:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("23aj");
+
+
+/***/ }),
+
+/***/ "1Lyd":
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
 /***/ "23aj":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getServerSideProps", function() { return getServerSideProps; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("cDcd");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _style_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("KdDy");
-/* harmony import */ var _style_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_style_less__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _api_getData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("s9+w");
-/* harmony import */ var _common_main_layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("j05c");
-/* harmony import */ var _plugin_withAxios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("/lZx");
-/* harmony import */ var _plugin_withPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("iULE");
-/* harmony import */ var _utils_array__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("sF6c");
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, "getServerSideProps", function() { return /* binding */ getServerSideProps; });
+
+// EXTERNAL MODULE: external "react"
+var external_react_ = __webpack_require__("cDcd");
+var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
+
+// EXTERNAL MODULE: ./pages/style.less
+var style = __webpack_require__("KdDy");
+
+// EXTERNAL MODULE: ./api/getData.ts
+var getData = __webpack_require__("s9+w");
+
+// EXTERNAL MODULE: ./common/main-layout/index.tsx + 4 modules
+var main_layout = __webpack_require__("j05c");
+
+// EXTERNAL MODULE: ./plugin/withAxios.ts + 2 modules
+var withAxios = __webpack_require__("/lZx");
+
+// EXTERNAL MODULE: ./plugin/withPage.tsx
+var withPage = __webpack_require__("iULE");
+
+// EXTERNAL MODULE: ./utils/array.ts
+var array = __webpack_require__("sF6c");
+
+// EXTERNAL MODULE: ./api/apiUrls.ts
+var apiUrls = __webpack_require__("QSsk");
+
+// EXTERNAL MODULE: external "axios"
+var external_axios_ = __webpack_require__("zr5I");
+var external_axios_default = /*#__PURE__*/__webpack_require__.n(external_axios_);
+
+// CONCATENATED MODULE: ./api/get163Msg.ts
+
+
+const get163Msg = async () => {
+  const res = await external_axios_default.a.get(apiUrls["a" /* ApiUrls */].comments163);
+  const text = res.data;
+
+  if (text) {
+    const contentEnd = text.indexOf('来自@');
+    const anthEnd = text.indexOf('在「');
+    return text.slice(0, contentEnd) + '@' + text.slice(contentEnd + 3, anthEnd);
+  }
+};
+// EXTERNAL MODULE: ./components/words-inputing/index.tsx
+var words_inputing = __webpack_require__("f2EC");
+
+// CONCATENATED MODULE: ./pages/index.tsx
+
+var __jsx = external_react_default.a.createElement;
 
 
 
 
 
 
-const getServerSideProps = Object(_plugin_withAxios__WEBPACK_IMPORTED_MODULE_4__[/* withAxios */ "a"])(async ({
+
+
+
+const getServerSideProps = Object(withAxios["a" /* withAxios */])(async ({
   get
 }, ctx) => {
   return {
-    home: await Object(_api_getData__WEBPACK_IMPORTED_MODULE_2__[/* getData */ "a"])('home')
+    home: await Object(getData["a" /* getData */])('home')
   };
 });
-/* harmony default export */ __webpack_exports__["default"] = (Object(_plugin_withPage__WEBPACK_IMPORTED_MODULE_5__[/* withPage */ "a"])(({
+
+const LiveComment = () => {
+  const {
+    0: msg,
+    1: setMsg
+  } = Object(external_react_["useState"])();
+  Object(external_react_["useEffect"])(() => {
+    get163Msg().then(text => {
+      setMsg(text);
+    });
+  }, []);
+  return __jsx(external_react_default.a.Fragment, null, msg && __jsx(words_inputing["a" /* WordsInputing */], {
+    inputs: msg,
+    key: msg,
+    next: () => setTimeout(() => get163Msg().then(text => {
+      setMsg(text);
+    }), 3000)
+  }));
+};
+
+/* harmony default export */ var pages = __webpack_exports__["default"] = (Object(withPage["a" /* withPage */])(({
   home
 }) => {
   const {
@@ -417,7 +496,7 @@ const getServerSideProps = Object(_plugin_withAxios__WEBPACK_IMPORTED_MODULE_4__
     pic,
     items
   } = home;
-  return __jsx(_common_main_layout__WEBPACK_IMPORTED_MODULE_3__[/* MainLayout */ "a"], {
+  return __jsx(main_layout["a" /* MainLayout */], {
     className: "PageIndex",
     title: "saber2pr\u306E\u7A9D"
   }, __jsx("ul", {
@@ -432,10 +511,12 @@ const getServerSideProps = Object(_plugin_withAxios__WEBPACK_IMPORTED_MODULE_4__
     src: pic,
     alt: title
   }))), __jsx("div", {
+    className: "PageIndex-Comment"
+  }, __jsx(LiveComment, null)), __jsx("div", {
     className: "PageIndex-Content"
   }, __jsx("section", {
     className: "PageIndex-Content-Item"
-  }, __jsx("ul", null, Object(_utils_array__WEBPACK_IMPORTED_MODULE_6__[/* getArray */ "a"])(items).map(({
+  }, __jsx("ul", null, Object(array["a" /* getArray */])(items).map(({
     type,
     content
   }) => __jsx("li", {
@@ -782,14 +863,6 @@ module.exports = _interopRequireWildcard;
 
 /***/ }),
 
-/***/ 9:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("23aj");
-
-
-/***/ }),
-
 /***/ "9I8p":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -960,10 +1033,11 @@ module.exports = require("@saber2pr/next-with-axios");
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getNowMon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getNowMon; });
 /* unused harmony export getNow */
 /* unused harmony export formatTimestamp */
 /* unused harmony export formatSeconds */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return formatTime; });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("wy2R");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _is__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("/B36");
@@ -992,6 +1066,7 @@ const formatSeconds = (seconds, split = ':') => {
   const s = Math.floor(seconds % 60);
   return [h, m, s].map(v => String(v).padStart(2, '0')).join(split);
 };
+const formatTime = time => `${time.slice(0, 4)}/${time.slice(4)}`;
 
 /***/ }),
 
@@ -1548,6 +1623,7 @@ const ApiUrls = {
   dingtalkSendMessage: '/dingtalk/sendMessage',
   // apis
   list: '/list',
+  comments163: 'https://api.uomg.com/api/comments.163?format=text',
   // github
   data_: 'https://saber2pr.top/static/data/',
   content_: 'https://saber2pr.top/blog'
@@ -1874,7 +1950,7 @@ function getRouteRegex(normalizedRoute) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export collect */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return collect; });
 /* harmony import */ var _whenInDEV__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("25xb");
 
 function collect(tree, stack = [tree]) {
@@ -1939,10 +2015,14 @@ const TableBlock = width => ({
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getArray", function() { return _array__WEBPACK_IMPORTED_MODULE_2__["a"]; });
 
 /* harmony import */ var _collect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("YlCu");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "collect", function() { return _collect__WEBPACK_IMPORTED_MODULE_3__["a"]; });
+
 /* harmony import */ var _console__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("pNwb");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("Evpv");
 /* harmony import */ var _createError__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("/xoJ");
 /* harmony import */ var _date__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("DsOh");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatTime", function() { return _date__WEBPACK_IMPORTED_MODULE_7__["a"]; });
+
 /* harmony import */ var _getPrefixCls__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("EKCh");
 /* harmony import */ var _goTop__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("VbZ2");
 /* harmony import */ var _input_history__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("LqVz");
@@ -1955,6 +2035,8 @@ const TableBlock = width => ({
 /* harmony import */ var _obj_op__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__("uDXG");
 /* harmony import */ var _parseCookie__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__("y8kM");
 /* harmony import */ var _parseTree__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__("iAJO");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "queryRootFirstChild", function() { return _parseTree__WEBPACK_IMPORTED_MODULE_17__["b"]; });
+
 /* harmony import */ var _path__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__("XgvE");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "join", function() { return _path__WEBPACK_IMPORTED_MODULE_18__["a"]; });
 
@@ -2423,7 +2505,7 @@ const printResUrlTime = res => {
       }
 
       const duration = Object(utils["a" /* getMetadata */])(res, 'duration');
-      let optionalParams = [Object(date["a" /* getNowMon */])().format('YYYY-MM-DD HH:mm:ss'), reqUrl];
+      let optionalParams = [Object(date["b" /* getNowMon */])().format('YYYY-MM-DD HH:mm:ss'), reqUrl];
 
       if (duration) {
         optionalParams = optionalParams.concat(`[duration]: ${duration}ms`);
@@ -2668,6 +2750,13 @@ const createPureRequest = config => {
 };
 
 const requestUri = enhanceAxiosCache(createPureRequest());
+
+
+/***/ }),
+
+/***/ "eaQF":
+/***/ (function(module, exports) {
+
 
 
 /***/ }),
@@ -3794,6 +3883,58 @@ const Messager = {
 
 /***/ }),
 
+/***/ "f2EC":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WordsInputing; });
+/* harmony import */ var _style_less__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("eaQF");
+/* harmony import */ var _style_less__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_less__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("cDcd");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_use__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("zKz7");
+/* harmony import */ var react_use__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_use__WEBPACK_IMPORTED_MODULE_2__);
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+
+
+const WordsInputing = ({
+  inputs,
+  next,
+  speed = 100,
+  interval = 3000,
+  cursor = true
+}) => {
+  const {
+    0: text,
+    1: setText
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])('');
+  Object(react_use__WEBPACK_IMPORTED_MODULE_2__["useInterval"])(() => {
+    if (text.length < inputs.length) {
+      setText(text + inputs[text.length]);
+    }
+  }, text.length < inputs.length ? speed : null);
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(() => {
+    if (text.length === inputs.length) {
+      if (next) {
+        next();
+      } else {
+        setTimeout(() => setText(''), interval);
+      }
+    }
+  }, [text]);
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(() => {
+    setText('');
+  }, [inputs]);
+  return __jsx("span", {
+    className: "WordsInputing"
+  }, text, cursor && __jsx("span", {
+    className: "cursor"
+  }));
+};
+
+/***/ }),
+
 /***/ "fOwK":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4037,8 +4178,8 @@ ptbk.setEnable(_api_apiConfig__WEBPACK_IMPORTED_MODULE_1__[/* ApiConfig */ "a"].
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return findNodeByPath; });
-/* unused harmony export queryRootFirstChild */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return queryRootFirstChildMemo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return queryRootFirstChild; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return queryRootFirstChildMemo; });
 /* harmony import */ var _saber2pr_memo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("ll7R");
 /* harmony import */ var _saber2pr_memo__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_saber2pr_memo__WEBPACK_IMPORTED_MODULE_0__);
 
@@ -4184,11 +4325,92 @@ var router_ = __webpack_require__("4Q3z");
 // EXTERNAL MODULE: ./components/link/index.tsx
 var components_link = __webpack_require__("KQPQ");
 
+// EXTERNAL MODULE: ./components/header-message/style.less
+var header_message_style = __webpack_require__("1Lyd");
+
+// CONCATENATED MODULE: ./utils/checkTime.ts
+const checkDarkTime = () => {
+  const hour = new Date().getHours();
+  return hour < 6 || hour > 18;
+};
+const checkDarknessTime = () => {
+  const hour = new Date().getHours();
+  return hour < 6 || hour > 24;
+};
+const getTimeMessage = () => {
+  const hour = new Date().getHours();
+
+  if (hour < 6) {
+    return '不要熬夜哦~身体健康最重要~';
+  }
+
+  if (hour < 12) {
+    return '早上好~新的一天也要努力~';
+  }
+
+  if (hour < 13) {
+    return '中午好~吃过饭了吗~';
+  }
+
+  if (hour < 18) {
+    return '下午好~';
+  }
+
+  if (hour <= 21) {
+    return '晚上好~马上进入夜晚了哦...';
+  }
+
+  if (hour <= 24) {
+    return '已经很晚了...';
+  }
+};
+// CONCATENATED MODULE: ./components/header-message/index.tsx
+var header_message_jsx = external_react_default.a.createElement;
+
+
+
+const TimeMessageInterval = 6000;
+const TimeMessage = ({
+  msg
+}) => {
+  const ref = Object(external_react_["useRef"])();
+  Object(external_react_["useEffect"])(() => {
+    if (msg) {
+      const el = ref.current;
+
+      if (el) {
+        el.style.display = 'inline';
+      }
+
+      setTimeout(() => {
+        if (el) {
+          el.style.display = 'none';
+        }
+      }, TimeMessageInterval);
+    }
+  }, [msg]);
+  return header_message_jsx("span", {
+    className: "time-message",
+    ref: ref
+  }, msg);
+};
+const HeaderMessage = ({}) => {
+  const {
+    0: msg,
+    1: setMsg
+  } = Object(external_react_["useState"])(getTimeMessage());
+  return header_message_jsx("div", {
+    className: "HeaderMessage"
+  }, header_message_jsx(TimeMessage, {
+    msg: msg
+  }));
+};
 // CONCATENATED MODULE: ./common/main-header/index.tsx
 
 
 
 var main_header_jsx = external_react_default.a.createElement;
+
 
 
 
@@ -4206,6 +4428,12 @@ const NavLinks = [{
 }, {
   name: '笔记',
   href: '/blog/永恒の幻想乡'
+}, {
+  name: '文档',
+  href: '/learn'
+}, {
+  name: '数据',
+  href: '/datav'
 }, {
   name: '关于',
   href: '/about'
@@ -4256,7 +4484,9 @@ const MainHeader = ({}) => {
       className: "NavList-Item-Anchor",
       href: href
     }, content));
-  }))), main_header_jsx("div", {
+  })), main_header_jsx("div", {
+    className: "NavList-Block"
+  }, main_header_jsx(HeaderMessage, null))), main_header_jsx("div", {
     className: "MainHeader-Right"
   }, main_header_jsx("a", {
     className: "NavList-Item-Anchor",
@@ -4887,6 +5117,13 @@ const parseCookie = cookie => {
 const stringifyCookie = (name, value, options) => {
   cookie__WEBPACK_IMPORTED_MODULE_0___default.a.serialize(name, value, options);
 };
+
+/***/ }),
+
+/***/ "zKz7":
+/***/ (function(module, exports) {
+
+module.exports = require("react-use");
 
 /***/ }),
 

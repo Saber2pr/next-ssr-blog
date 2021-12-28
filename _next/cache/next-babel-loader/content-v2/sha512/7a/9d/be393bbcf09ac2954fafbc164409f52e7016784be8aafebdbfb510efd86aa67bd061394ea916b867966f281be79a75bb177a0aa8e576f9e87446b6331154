@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { useEffect } from 'react';\nexport const useUnMount = (effect, deps = []) => useEffect(() => effect, deps);","map":null,"metadata":{},"sourceType":"module"}

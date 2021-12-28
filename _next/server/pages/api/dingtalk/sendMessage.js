@@ -236,10 +236,11 @@ const toQueryStr = obj => {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getNowMon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getNowMon; });
 /* unused harmony export getNow */
 /* unused harmony export formatTimestamp */
 /* unused harmony export formatSeconds */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return formatTime; });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("wy2R");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _is__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("/B36");
@@ -268,6 +269,7 @@ const formatSeconds = (seconds, split = ':') => {
   const s = Math.floor(seconds % 60);
   return [h, m, s].map(v => String(v).padStart(2, '0')).join(split);
 };
+const formatTime = time => `${time.slice(0, 4)}/${time.slice(4)}`;
 
 /***/ }),
 
@@ -437,6 +439,7 @@ const ApiUrls = {
   dingtalkSendMessage: '/dingtalk/sendMessage',
   // apis
   list: '/list',
+  comments163: 'https://api.uomg.com/api/comments.163?format=text',
   // github
   data_: 'https://saber2pr.top/static/data/',
   content_: 'https://saber2pr.top/blog'
@@ -655,7 +658,7 @@ const printResUrlTime = res => {
       }
 
       const duration = Object(utils["a" /* getMetadata */])(res, 'duration');
-      let optionalParams = [Object(date["a" /* getNowMon */])().format('YYYY-MM-DD HH:mm:ss'), reqUrl];
+      let optionalParams = [Object(date["b" /* getNowMon */])().format('YYYY-MM-DD HH:mm:ss'), reqUrl];
 
       if (duration) {
         optionalParams = optionalParams.concat(`[duration]: ${duration}ms`);
