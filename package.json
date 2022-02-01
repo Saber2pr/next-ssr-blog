@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "cross-env NODE_ENV=production next build",
     "start": "next start",
     "release": "standard-version"
   },
